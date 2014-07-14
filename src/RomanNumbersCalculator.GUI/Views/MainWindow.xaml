@@ -1,0 +1,11 @@
+﻿<Window x:Class="RomanNumbersCalculator.GUI.Views.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="350" Width="525">
+    <StackPanel>
+        <TextBox Text="{Binding FirstNumber}"/>
+        <TextBox Text="{Binding SecondNumber}"/>
+        <TextBox Text="{Binding Result}"/>
+        <Button Command="{Binding AddValuesCommand}" Content="Add"/>
+    </StackPanel>
+</Window>
