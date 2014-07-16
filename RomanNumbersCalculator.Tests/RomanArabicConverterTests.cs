@@ -11,57 +11,123 @@ namespace RomanNumbersCalculator.Tests
 
         [TestMethod]
         [ExpectedException(typeof(ArabicNumberOutOfRomanNumberRangeException))]
-        public void ToRoman_ShouldThrow_ArabicNumberOutOfRomanNumberRangeException_When_Value_Is_LessThan1()
+        public void ToRoman_ShouldThrowArabicNumberOutOfRomanNumberRangeException_When_ValueIsLessThan1()
         {
-            var arabicValue = 0;
+            var arabicNumber = 0;
 
-            _romanArabicConverter.ToRoman(arabicValue);
+            _romanArabicConverter.ToRoman(arabicNumber);
 
-            Assert.Fail("Test should fail when arabic value is less than 1.");
+            Assert.Fail("Test should fail when arabic number is less than 1.");
         }
 
         [TestMethod]
         [ExpectedException(typeof(ArabicNumberOutOfRomanNumberRangeException))]
-        public void ToRoman_ShouldThrow_ArabicNumberOutOfRomanNumberRangeException_When_Value_Is_GreaterThan3999()
+        public void ToRoman_Should_ThrowArabicNumberOutOfRomanNumberRangeException_When_ValueIsGreaterThan3999()
         {
-            var arabicValue = 4000;
+            var arabicNumber = 4000;
 
-            _romanArabicConverter.ToRoman(arabicValue);
+            _romanArabicConverter.ToRoman(arabicNumber);
 
-            Assert.Fail("Test should fail when arabic value is greater than 3999.");
+            Assert.Fail("Test should fail when arabic number is greater than 3999.");
         }
 
         [TestMethod]
-        public void ToRoman_ShouldReturn_XV_When_ValueIs_15()
+        public void ToRoman_Should_ReturnLXV_When_ValueIs65()
         {
-            var arabicValue = 15;
+            var arabicNumber = 65;
 
-            var romanNumber = _romanArabicConverter.ToRoman(arabicValue);
-            var expectedRomanNumber = "XV";
+            var romanNumber = _romanArabicConverter.ToRoman(arabicNumber);
+            var expectedRomanNumber = "LXV";
 
             Assert.AreEqual(expectedRomanNumber, romanNumber);
         }
 
         [TestMethod]
-        public void ToRoman_ShouldReturn_MMXIV_When_ValueIs_2014()
+        public void ToRoman_Should_ReturnMMXIV_When_ValueIs2014()
         {
-            var arabicValue = 2014;
+            var arabicNumber = 2014;
 
-            var romanNumber = _romanArabicConverter.ToRoman(arabicValue);
+            var romanNumber = _romanArabicConverter.ToRoman(arabicNumber);
             var expectedRomanNumber = "MMXIV";
 
             Assert.AreEqual(expectedRomanNumber, romanNumber);
         }
 
         [TestMethod]
-        public void ToRoman_ShouldReturn_MDCXCVIII_When_ValueIs_1698()
+        public void ToRoman_Should_ReturnMDCXCVIII_When_ValueIs1698()
         {
-            var arabicValue = 1698;
+            var arabicNumber = 1698;
 
-            var romanNumber = _romanArabicConverter.ToRoman(arabicValue);
+            var romanNumber = _romanArabicConverter.ToRoman(arabicNumber);
             var expectedRomanNumber = "MDCXCVIII";
 
             Assert.AreEqual(expectedRomanNumber, romanNumber);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(InvalidRomanNumberFormatException))]
+        public void ToArabic_Should_ThrowInvalidRomanNumberFormatException_When_ValueIsEmpty()
+        {
+            var romanNumber = string.Empty;
+
+            var arabNumber = _romanArabicConverter.ToArabic(romanNumber);
+
+            Assert.Fail("Test should fail when roman number is empty.");
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(InvalidRomanNumberFormatException))]
+        public void ToArabic_Should_ThrowInvalidRomanNumberFormatException_When_ValueContainsInvalidCharacter()
+        {
+            var invalidRomanNumber = "f";
+
+            _romanArabicConverter.ToArabic(invalidRomanNumber);
+
+            Assert.Fail("Test should fail when roman number contains invalid character.");
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(InvalidRomanNumberFormatException))]
+        public void ToArabic_Should_ThrowInvalidRomanNumberFormatException_When_ValueIsBiggerThan3999()
+        {
+            var romanNumber = "MMMM";
+
+            _romanArabicConverter.ToArabic(romanNumber);
+
+            Assert.Fail("Test should fail when roman number is bigger than 3999.");
+        }
+
+        [TestMethod]
+        public void ToArabic_Should_Return65_When_ValueIsLXV()
+        {
+            var romanNumber = "LXV";
+            var expectedArabicNumber = 65;
+
+            var arabicNumber = _romanArabicConverter.ToArabic(romanNumber);
+
+            Assert.AreEqual(expectedArabicNumber, arabicNumber);
+        }
+
+        [TestMethod]
+        public void ToArabic_Should_Return2014_When_ValueIsMMIV()
+        {
+            var romanNumber = "MMXIV";
+            var expectedArabicNumber = 2014;
+
+            var arabicNumber = _romanArabicConverter.ToArabic(romanNumber);
+
+            Assert.AreEqual(expectedArabicNumber, arabicNumber);
+        }
+
+        [TestMethod]
+        public void ToArabic_Should_Return1698_When_ValueIsMDCXCVIII()
+        {
+            var romanNumber = "MDCXCVIII";
+            var expectedArabicNumber = 1698;
+
+            var arabicNumber = _romanArabicConverter.ToArabic(romanNumber);
+
+            Assert.AreEqual(expectedArabicNumber, arabicNumber);
         }
     }
 }
