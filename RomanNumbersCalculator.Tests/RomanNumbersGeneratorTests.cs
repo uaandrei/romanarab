@@ -4,7 +4,7 @@ using RomanNumbersCalculator.BL;
 namespace RomanNumbersCalculator.Tests
 {
     [TestClass]
-    public class RomanNumbersGeneratorTest
+    public class RomanNumbersGeneratorTests
     {
         private RomanNumbersGenerator _romanNumbersGenerator;
 
