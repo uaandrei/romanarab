@@ -174,4 +174,4 @@ UpgradeLog*.htm
 FakesAssemblies/
 
 # Code coverage
-test_report/
+/test_report
