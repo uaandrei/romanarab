@@ -41,8 +41,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AndSpecification.cs" />
-    <Compile Include="RomanNumbersGroup.cs" />
-    <Compile Include="RomanUnitsParser.cs" />
+    <Compile Include="RomanSymbolsGroup.cs" />
+    <Compile Include="RomanStringParser.cs" />
     <Compile Include="XorSpecification.cs" />
     <Compile Include="ISpecification.cs" />
     <Compile Include="RomanNumbersGenerator.cs" />

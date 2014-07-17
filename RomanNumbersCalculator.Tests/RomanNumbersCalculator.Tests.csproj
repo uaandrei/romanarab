@@ -57,7 +57,7 @@
     <Compile Include="AndSpecificationTests.cs" />
     <Compile Include="RomanNumbersGeneratorTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RomanUnitsParserTest.cs" />
+    <Compile Include="RomanStringParserTests.cs" />
     <Compile Include="XorSpecificationTests.cs" />
   </ItemGroup>
   <ItemGroup>

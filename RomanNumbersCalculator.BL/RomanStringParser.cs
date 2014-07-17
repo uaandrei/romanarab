@@ -2,14 +2,14 @@
 
 namespace RomanNumbersCalculator.BL
 {
-    public class RomanUnitsParser
+    public class RomanStringParser
     {
         private List<string> _romanUnitsList;
 
-        public RomanUnitsParser()
+        public RomanStringParser(RomanSymbolsGroup romanSymbolsGroup)
         {
             var romanNumbersGenerator = new RomanNumbersGenerator();
-            _romanUnitsList = romanNumbersGenerator.GenerateRomanNumbers(new RomanSymbolsGroup("I", "V", "X"));
+            _romanUnitsList = romanNumbersGenerator.GenerateRomanNumbers(romanSymbolsGroup);
             _romanUnitsList.Reverse();
         }
 
