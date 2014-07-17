@@ -41,11 +41,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AndSpecification.cs" />
+    <Compile Include="RomanNumbersGroup.cs" />
+    <Compile Include="RomanUnitsParser.cs" />
     <Compile Include="XorSpecification.cs" />
     <Compile Include="ISpecification.cs" />
     <Compile Include="RomanNumbersGenerator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RomanNumbersGroup.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
