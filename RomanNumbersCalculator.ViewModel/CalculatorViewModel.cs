@@ -10,7 +10,6 @@ namespace RomanNumbersCalculator.ViewModel
         private string _firstNumber;
         private string _secondNumber;
         private string _result;
-        private RomanArabicConverter _romanArabicConverter;
 
         public string FirstNumber
         {
@@ -66,7 +65,6 @@ namespace RomanNumbersCalculator.ViewModel
 
         public CalculatorViewModel()
         {
-            _romanArabicConverter = new RomanArabicConverter();
             AddValuesCommand = new DelegateCommand(ExecuteAddValues, CanExecuteAddValues);
         }
 
@@ -80,7 +78,6 @@ namespace RomanNumbersCalculator.ViewModel
             var arab1 = Convert.ToInt32(FirstNumber);
             var arab2 = Convert.ToInt32(SecondNumber);
 
-            Result = _romanArabicConverter.ToRoman(arab1 + arab2);
         }
 
     }

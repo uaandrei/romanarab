@@ -40,10 +40,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Exceptions\ArabicNumberOutOfRomanNumberRangeException.cs" />
-    <Compile Include="Exceptions\InvalidRomanNumberFormatException.cs" />
-    <Compile Include="RomanArabicConverter.cs" />
+    <Compile Include="RomanNumbersGenerator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RomanNumbersGroup.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

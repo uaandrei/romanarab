@@ -6,6 +6,13 @@ set test_exe="C:\Program Files (x86)\Microsoft Visual Studio 12.0\Common7\IDE\Co
 set opencoverfile="test_report\opencover.xml"
 set reportfolder="test_report\codecoverage_report"
 
+if exist test_report (goto RUN) else (mkdir test_report)
+if exist test_report\codecoverage_report (goto RUN) else (mkdir test_report\codecoverage_report)
+
+:RUN
+
 %opencover_exe% -register:user -target:%test_exe% -targetargs:%dll% -filter:"+[*BL*]*" -output:%opencoverfile%
 %reportgenerator_exe% -reports:%opencoverfile% -targetdir:%reportfolder%
 call %reportfolder%"\index.htm"
+
+PAUSE 
