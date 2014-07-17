@@ -40,15 +40,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AndSpecification.cs" />
+    <Compile Include="Specification\AndSpecification.cs" />
     <Compile Include="RomanSymbolsGroup.cs" />
     <Compile Include="RomanStringParser.cs" />
-    <Compile Include="XorSpecification.cs" />
-    <Compile Include="ISpecification.cs" />
+    <Compile Include="Specification\XorSpecification.cs" />
+    <Compile Include="Specification\ISpecification.cs" />
     <Compile Include="RomanNumbersGenerator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="RomanNumberSpecifications\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -1,7 +1,6 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using RomanNumbersCalculator.BL;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
+using RomanNumbersCalculator.BL.Specification;
 
 namespace RomanNumbersCalculator.Tests
 {

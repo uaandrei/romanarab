@@ -1,4 +1,4 @@
-﻿namespace RomanNumbersCalculator.BL
+﻿namespace RomanNumbersCalculator.BL.Specification
 {
     public class AndSpecification<T> : ISpecification<T>
     {
