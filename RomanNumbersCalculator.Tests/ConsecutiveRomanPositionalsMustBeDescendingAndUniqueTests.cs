@@ -16,7 +16,7 @@ namespace RomanNumbersCalculator.Tests
         }
 
         [TestMethod]
-        public void IsSatisfiedBy_ReturnsTrue_When_AllPositionalsArePresentAndAreDescending()
+        public void IsSatisfiedBy_ReturnsTrue_When_AllPositionalsAreDescendingAndUnique()
         {
             var candidate = "MMCMXXVII";
 
@@ -24,9 +24,17 @@ namespace RomanNumbersCalculator.Tests
         }
 
         [TestMethod]
-        public void IsSatisfiedBy_ReturnsFalse_When_PositionalsAreNotDescending()
+        public void IsSatisfiedBy_ReturnsTrue_When_PositionalsAreDescendingButNotUnique()
         {
-            var candidate = "CMMCMXXVII";
+            var candidate = "MMCMXXVIIII";
+
+            Assert.IsFalse(_descendingPositionalsSpec.IsSatisfiedBy(candidate));
+        }
+
+        [TestMethod]
+        public void IsSatisfiedBy_ReturnsTrue_When_PositionalsAreUniqueButNotDescending()
+        {
+            var candidate = "MMCMVIIXX";
 
             Assert.IsFalse(_descendingPositionalsSpec.IsSatisfiedBy(candidate));
         }

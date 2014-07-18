@@ -40,14 +40,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="RomanNumberSpecification\ConsecutiveRomanPositionalsMustBeDescending.cs" />
+    <Compile Include="RomanNumberValidator.cs" />
+    <Compile Include="RomanNumberSpecification\ConsecutiveRomanPositionalsMustBeDescendingAndUnique.cs" />
     <Compile Include="RomanPositionalIdentifier.cs" />
-    <Compile Include="Specification\SymbolLimitInString.cs" />
-    <Compile Include="Specification\AndSpecification.cs" />
     <Compile Include="RomanSymbolsGroup.cs" />
     <Compile Include="RomanStringParser.cs" />
-    <Compile Include="Specification\XorSpecification.cs" />
-    <Compile Include="Specification\ISpecification.cs" />
+    <Compile Include="RomanNumberSpecification\ISpecification.cs" />
     <Compile Include="RomanNumbersGenerator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

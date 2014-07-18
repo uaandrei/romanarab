@@ -1,5 +1,4 @@
-﻿using RomanNumbersCalculator.BL.Specification;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 
 namespace RomanNumbersCalculator.BL.RomanNumberSpecification
@@ -50,6 +49,9 @@ namespace RomanNumbersCalculator.BL.RomanNumberSpecification
             var correctRomanPositionalList = new List<RomanPositionalCategory> { RomanPositionalCategory.Thousands, RomanPositionalCategory.Hundreds, RomanPositionalCategory.Tens, RomanPositionalCategory.Units };
 
             correctRomanPositionalList = correctRomanPositionalList.Intersect(romanPositionalList).ToList();
+
+            if (romanPositionalList.Count != correctRomanPositionalList.Count)
+                return false;
 
             for (int i = 0; i < correctRomanPositionalList.Count; i++)
             {
