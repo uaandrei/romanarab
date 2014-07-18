@@ -16,7 +16,7 @@
             <Button Grid.Column="0" 
                     Content="CLR"
                     Command="{Binding ClearFirstNumberCommand}"/>
-            <TextBox Grid.Column="1" Text="{Binding FirstNumber.Value}">
+            <TextBox Grid.Column="1" Text="{Binding FirstNumber.Value, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}">
                 <i:Interaction.Triggers>
                     <i:EventTrigger EventName="GotFocus">
                         <i:InvokeCommandAction Command="{Binding FocusFirstNumberCommand}"/>
@@ -32,7 +32,7 @@
             <Button Grid.Column="0" 
                     Content="CLR"
                     Command="{Binding ClearSecondNumberCommand}"/>
-            <TextBox Grid.Column="1" Text="{Binding SecondNumber.Value}">
+            <TextBox Grid.Column="1" Text="{Binding SecondNumber.Value, ValidatesOnDataErrors=True}">
                 <i:Interaction.Triggers>
                     <i:EventTrigger EventName="GotFocus">
                         <i:InvokeCommandAction Command="{Binding FocusSecondNumberCommand}"/>
