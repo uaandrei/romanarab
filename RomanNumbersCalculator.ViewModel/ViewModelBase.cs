@@ -7,7 +7,7 @@ namespace RomanNumbersCalculator.ViewModel
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
-        protected void NotifyPropertyChanged([CallerMemberName]string propertyName = "")
+        protected void NotifyPropertyChanged(string propertyName)
         {
             if (PropertyChanged != null)
             {

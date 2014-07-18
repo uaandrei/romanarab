@@ -1,7 +1,6 @@
 ﻿using Microsoft.Practices.Prism.Commands;
-using RomanNumbersCalculator.BL;
+using RomanNumbersCalculator.BL.Calculator;
 using System;
-using System.Windows.Input;
 
 namespace RomanNumbersCalculator.ViewModel
 {
@@ -10,6 +9,8 @@ namespace RomanNumbersCalculator.ViewModel
         private string _firstNumber;
         private string _secondNumber;
         private string _result;
+        private EditNumber _editNumber;
+        private RomanNumberCalculator _romanNumberCalculator;
 
         public string FirstNumber
         {
@@ -22,8 +23,7 @@ namespace RomanNumbersCalculator.ViewModel
                 if (_firstNumber != value)
                 {
                     _firstNumber = value;
-                    NotifyPropertyChanged();
-                    AddValuesCommand.RaiseCanExecuteChanged();
+                    NotifyPropertyChanged("FirstNumber");
                 }
             }
         }
@@ -39,8 +39,7 @@ namespace RomanNumbersCalculator.ViewModel
                 if (_secondNumber != value)
                 {
                     _secondNumber = value;
-                    NotifyPropertyChanged();
-                    AddValuesCommand.RaiseCanExecuteChanged();
+                    NotifyPropertyChanged("SecondNumber");
                 }
             }
         }
@@ -56,29 +55,56 @@ namespace RomanNumbersCalculator.ViewModel
                 if (_result != value)
                 {
                     _result = value;
-                    NotifyPropertyChanged();
+                    NotifyPropertyChanged("Result");
                 }
             }
         }
 
-        public DelegateCommand AddValuesCommand { get; set; }
+        public DelegateCommand CalculateCommand { get; set; }
+        public DelegateCommand FocusFirstNumberCommand { get; set; }
+        public DelegateCommand FocusSecondNumberCommand { get; set; }
+        public DelegateCommand<string> SendInputCommand { get; set; }
 
         public CalculatorViewModel()
         {
-            AddValuesCommand = new DelegateCommand(ExecuteAddValues, CanExecuteAddValues);
+            _romanNumberCalculator = new RomanNumberCalculator();
+            CalculateCommand = new DelegateCommand(OnCalculateExecute);
+            FocusFirstNumberCommand = new DelegateCommand(OnFocusFirstNumberExecute);
+            FocusSecondNumberCommand = new DelegateCommand(OnFocusSecondNumberExecute);
+            SendInputCommand = new DelegateCommand<string>(OnSendInputExecute);
         }
 
-        private bool CanExecuteAddValues()
+        private void OnCalculateExecute()
         {
-            return !string.IsNullOrWhiteSpace(FirstNumber) && !string.IsNullOrWhiteSpace(SecondNumber);
+            Result = _romanNumberCalculator.Add(FirstNumber, SecondNumber);
         }
 
-        private void ExecuteAddValues()
+        private void OnSendInputExecute(string value)
         {
-            var arab1 = Convert.ToInt32(FirstNumber);
-            var arab2 = Convert.ToInt32(SecondNumber);
-
+            switch (_editNumber)
+            {
+                case EditNumber.First:
+                    FirstNumber = value + FirstNumber;
+                    break;
+                case EditNumber.Second:
+                    SecondNumber = value + SecondNumber;
+                    break;
+            }
         }
 
+        private void OnFocusFirstNumberExecute()
+        {
+            _editNumber = EditNumber.First;
+        }
+
+        private void OnFocusSecondNumberExecute()
+        {
+            _editNumber = EditNumber.Second;
+        }
+
+        private enum EditNumber
+        {
+            First, Second
+        }
     }
 }
