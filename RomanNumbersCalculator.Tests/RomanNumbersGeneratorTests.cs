@@ -45,11 +45,11 @@ namespace RomanNumbersCalculator.Tests
         }
 
         [TestMethod]
-        public void GenerateRomanNumbers_Should_GenerateAllThousandsRomanNumbers_When_XLC_RomanGroupIsPassed()
+        public void GenerateRomanNumbers_Should_GenerateAllHundredsRomanNumbers_When_XLC_RomanGroupIsPassed()
         {
-            var romanThousandsSymbolsGroup = new RomanSymbolsGroup("C", "D", "M");
+            var romanHundredsSymbolsGroup = new RomanSymbolsGroup("C", "D", "M");
 
-            var actualRomanNumbers = _romanNumbersGenerator.GenerateRomanNumbers(romanThousandsSymbolsGroup);
+            var actualRomanNumbers = _romanNumbersGenerator.GenerateRomanNumbers(romanHundredsSymbolsGroup);
 
             var expectedRomanNumbers = new[] { "C", "CC", "CCC", "CD", "D", "DC", "DCC", "DCCC", "CM" };
 

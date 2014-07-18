@@ -20,6 +20,11 @@ namespace RomanNumbersCalculator.BL
             return romanNumbers;
         }
 
+        public static List<string> GenerateRomanThousands()
+        {
+            return new List<string> { "M", "MM", "MMM" };
+        }
+
         private IEnumerable<string> GetNextThreeNumbersStartingFrom(string startingValue, string incrementValue)
         {
             for (int i = 1; i <= 3; i++)

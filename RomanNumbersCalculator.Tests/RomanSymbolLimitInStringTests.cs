@@ -27,5 +27,35 @@ namespace RomanNumbersCalculator.Tests
 
             Assert.IsFalse(romanSymbolLimitInString.IsSatisfiedBy(romanString));
         }
+
+        [TestMethod]
+        public void IsSatisfiedBy_Should_ReturnTrue_WhenPassedStringContains1OrLessOfTheSymbolSpecified()
+        {
+            var specifiedSymbol = "V";
+            var romanSymbolLimitInString = new SymbolLimitInString(specifiedSymbol, 1);
+            var romanString = "MMCCXVI";
+
+            Assert.IsTrue(romanSymbolLimitInString.IsSatisfiedBy(romanString));
+        }
+
+        [TestMethod]
+        public void IsSatisfiedBy_Should_ReturnFalse_WhenPassedStringContainsMoreThan1OfTheSymbolSpecified()
+        {
+            var specifiedSymbol = "V";
+            var romanSymbolLimitInString = new SymbolLimitInString(specifiedSymbol, 1);
+            var romanString = "MMCCXVIV";
+
+            Assert.IsFalse(romanSymbolLimitInString.IsSatisfiedBy(romanString));
+        }
+
+        [TestMethod]
+        public void IsSatisfiedBy_Should_ReturnTrue_WhenPassedStringDoesntContainTheSymbolSpecified()
+        {
+            var specifiedSymbol = "V";
+            var romanSymbolLimitInString = new SymbolLimitInString(specifiedSymbol, 1);
+            var romanString = "MMCCXIII";
+
+            Assert.IsTrue(romanSymbolLimitInString.IsSatisfiedBy(romanString));
+        }
     }
 }

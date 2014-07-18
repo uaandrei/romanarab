@@ -44,13 +44,30 @@ namespace RomanNumbersCalculator.Tests
         }
 
         [TestMethod]
-        public void Parse_Should_ReturnAllRomanThousandsFromString_When_RomanSymbolsForThousandsArePassed()
+        public void Parse_Should_ReturnAllRomanHundredsFromString_When_RomanSymbolsForThousandsArePassed()
         {
             var romanString = "CDCCCDIICMCXCX";
 
-            var actualRomanThousands = new RomanStringParser(new RomanSymbolsGroup("C", "D", "M")).Parse(romanString);
+            var actualRomanHundreds = new RomanStringParser(new RomanSymbolsGroup("C", "D", "M")).Parse(romanString);
 
-            var expectedRomanThousands = new List<string> { "CD", "CCC", "D", "CM", "C", "C" };
+            var expectedRomanHundreds = new List<string> { "CD", "CCC", "D", "CM", "C", "C" };
+
+            for (int i = 0; i < actualRomanHundreds.Count; i++)
+            {
+                expectedRomanHundreds.Remove(actualRomanHundreds[i]);
+            }
+
+            Assert.IsTrue(expectedRomanHundreds.Count == 0, string.Format("Failed to parse {0} roman hundred", expectedRomanHundreds.Count));
+        }
+
+        [TestMethod]
+        public void Parse_Should_ReturnAllRomanThousandsFromString_When_RomanHundredsNumbersArePassed()
+        {
+            var romanString = "MMCMMMMIXCM";
+
+            var actualRomanThousands = new RomanStringParser(RomanNumbersGenerator.GenerateRomanThousands()).Parse(romanString);
+
+            var expectedRomanThousands = new List<string> { "MM", "MMM", "M", "M" };
 
             for (int i = 0; i < actualRomanThousands.Count; i++)
             {

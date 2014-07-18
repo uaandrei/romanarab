@@ -4,13 +4,19 @@ namespace RomanNumbersCalculator.BL
 {
     public class RomanStringParser
     {
-        private List<string> _romanUnitsList;
+        private List<string> _romanNumbersList;
 
         public RomanStringParser(RomanSymbolsGroup romanSymbolsGroup)
         {
             var romanNumbersGenerator = new RomanNumbersGenerator();
-            _romanUnitsList = romanNumbersGenerator.GenerateRomanNumbers(romanSymbolsGroup);
-            _romanUnitsList.Reverse();
+            _romanNumbersList = romanNumbersGenerator.GenerateRomanNumbers(romanSymbolsGroup);
+            _romanNumbersList.Reverse();
+        }
+
+        public RomanStringParser(List<string> romanNumbers)
+        {
+            romanNumbers.Reverse();
+            _romanNumbersList = romanNumbers;
         }
 
         public List<string> Parse(string romanString)
@@ -23,7 +29,7 @@ namespace RomanNumbersCalculator.BL
             do
             {
                 hasFoundRomanUnit = false;
-                foreach (var romanUnit in _romanUnitsList)
+                foreach (var romanUnit in _romanNumbersList)
                 {
                     if (romanString.Contains(romanUnit))
                     {
