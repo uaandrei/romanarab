@@ -1,82 +1,69 @@
 ﻿using Microsoft.Practices.Prism.Commands;
 using RomanNumbersCalculator.BL.Calculator;
+using RomanNumbersCalculator.BL.Model;
 using System;
 
 namespace RomanNumbersCalculator.ViewModel
 {
-    public class CalculatorViewModel : ViewModelBase
+    public class CalculatorViewModel : NotifiableObject
     {
-        private string _firstNumber;
-        private string _secondNumber;
-        private string _result;
         private EditNumber _editNumber;
         private RomanNumberCalculator _romanNumberCalculator;
 
-        public string FirstNumber
+        public RomanNumber FirstNumber
         {
-            get
-            {
-                return _firstNumber;
-            }
-            set
-            {
-                if (_firstNumber != value)
-                {
-                    _firstNumber = value;
-                    NotifyPropertyChanged("FirstNumber");
-                }
-            }
+            get;
+            set;
         }
 
-        public string SecondNumber
+        public RomanNumber SecondNumber
         {
-            get
-            {
-                return _secondNumber;
-            }
-            set
-            {
-                if (_secondNumber != value)
-                {
-                    _secondNumber = value;
-                    NotifyPropertyChanged("SecondNumber");
-                }
-            }
+            get;
+            set;
         }
 
-        public string Result
+        public RomanNumber Result
         {
-            get
-            {
-                return _result;
-            }
-            set
-            {
-                if (_result != value)
-                {
-                    _result = value;
-                    NotifyPropertyChanged("Result");
-                }
-            }
+            get;
+            set;
         }
 
         public DelegateCommand CalculateCommand { get; set; }
         public DelegateCommand FocusFirstNumberCommand { get; set; }
+        public DelegateCommand ClearFirstNumberCommand { get; set; }
         public DelegateCommand FocusSecondNumberCommand { get; set; }
+        public DelegateCommand ClearSecondNumberCommand { get; set; }
         public DelegateCommand<string> SendInputCommand { get; set; }
 
         public CalculatorViewModel()
         {
+            FirstNumber = new RomanNumber();
+            SecondNumber = new RomanNumber();
+            Result = new RomanNumber();
             _romanNumberCalculator = new RomanNumberCalculator();
             CalculateCommand = new DelegateCommand(OnCalculateExecute);
             FocusFirstNumberCommand = new DelegateCommand(OnFocusFirstNumberExecute);
+            ClearFirstNumberCommand = new DelegateCommand(OnClearFirstNumberExecute);
             FocusSecondNumberCommand = new DelegateCommand(OnFocusSecondNumberExecute);
+            ClearSecondNumberCommand = new DelegateCommand(OnClearSecondNumberExecute);
             SendInputCommand = new DelegateCommand<string>(OnSendInputExecute);
+        }
+
+        private void OnClearFirstNumberExecute()
+        {
+            FirstNumber.Value = string.Empty;
+            Result.Value = string.Empty;
+        }
+
+        private void OnClearSecondNumberExecute()
+        {
+            SecondNumber.Value = string.Empty;
+            Result.Value = string.Empty;
         }
 
         private void OnCalculateExecute()
         {
-            Result = _romanNumberCalculator.Add(FirstNumber, SecondNumber);
+            Result.Value = _romanNumberCalculator.Add(FirstNumber.Value, SecondNumber.Value);
         }
 
         private void OnSendInputExecute(string value)
@@ -84,10 +71,10 @@ namespace RomanNumbersCalculator.ViewModel
             switch (_editNumber)
             {
                 case EditNumber.First:
-                    FirstNumber = value + FirstNumber;
+                    FirstNumber.Value += value;
                     break;
                 case EditNumber.Second:
-                    SecondNumber = value + SecondNumber;
+                    SecondNumber.Value += value;
                     break;
             }
         }

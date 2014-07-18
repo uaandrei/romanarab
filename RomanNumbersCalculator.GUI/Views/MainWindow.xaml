@@ -8,22 +8,38 @@
         <ResourceDictionary Source="..\Resources\RomanNumbersResourceDictionary.xaml"/>
     </Window.Resources>
     <DockPanel>
-        <TextBlock Text="{Binding FirstNumber}"
-                   DockPanel.Dock="Top">
-            <i:Interaction.Triggers>
-                <i:EventTrigger EventName="MouseDown">
-                    <i:InvokeCommandAction Command="{Binding FocusFirstNumberCommand}"/>
-                </i:EventTrigger>
-            </i:Interaction.Triggers>
-        </TextBlock>
-        <TextBlock Text="{Binding SecondNumber}"
-                   DockPanel.Dock="Top">
-            <i:Interaction.Triggers>
-                <i:EventTrigger EventName="MouseDown">
-                    <i:InvokeCommandAction Command="{Binding FocusSecondNumberCommand}"/>
-                </i:EventTrigger>
-            </i:Interaction.Triggers>
-        </TextBlock>
+        <Grid DockPanel.Dock="Top">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.15*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="0" 
+                    Content="CLR"
+                    Command="{Binding ClearFirstNumberCommand}"/>
+            <TextBox Grid.Column="1" Text="{Binding FirstNumber.Value}">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="GotFocus">
+                        <i:InvokeCommandAction Command="{Binding FocusFirstNumberCommand}"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </TextBox>
+        </Grid>
+        <Grid DockPanel.Dock="Top">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.15*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="0" 
+                    Content="CLR"
+                    Command="{Binding ClearSecondNumberCommand}"/>
+            <TextBox Grid.Column="1" Text="{Binding SecondNumber.Value}">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="GotFocus">
+                        <i:InvokeCommandAction Command="{Binding FocusSecondNumberCommand}"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </TextBox>
+        </Grid>
         <Grid DockPanel.Dock="Top">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="0.25*"/>
@@ -33,7 +49,8 @@
                     Content="="
                     Command="{Binding CalculateCommand}"/>
             <TextBlock Grid.Column="1"
-                       Text="{Binding Result}"/>
+                       Style="{StaticResource ResourceKey=OutputTextBlock}"
+                       Text="{Binding Result.Value}"/>
         </Grid>
         <local:RomanNumbersControl DockPanel.Dock="Bottom"/>
     </DockPanel>

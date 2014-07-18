@@ -107,6 +107,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\RomanNumbersCalculator.BL\RomanNumbersCalculator.BL.csproj">
+      <Project>{29a6b0bb-48cf-4c2d-83fb-eea3fc384408}</Project>
+      <Name>RomanNumbersCalculator.BL</Name>
+    </ProjectReference>
     <ProjectReference Include="..\RomanNumbersCalculator.ViewModel\RomanNumbersCalculator.ViewModel.csproj">
       <Project>{48091e0a-4660-44a8-a6be-1103e3c786c1}</Project>
       <Name>RomanNumbersCalculator.ViewModel</Name>

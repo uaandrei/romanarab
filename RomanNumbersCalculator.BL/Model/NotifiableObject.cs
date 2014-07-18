@@ -1,9 +1,9 @@
 ﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
-namespace RomanNumbersCalculator.ViewModel
+namespace RomanNumbersCalculator.BL.Model
 {
-    public class ViewModelBase : INotifyPropertyChanged
+    public class NotifiableObject : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
 

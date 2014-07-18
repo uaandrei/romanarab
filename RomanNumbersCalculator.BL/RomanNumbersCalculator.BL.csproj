@@ -44,6 +44,8 @@
     <Compile Include="Calculator\StringBasedCalculator.cs" />
     <Compile Include="Calculator\ICalculator.cs" />
     <Compile Include="IRomanNumberValidator.cs" />
+    <Compile Include="Model\NotifiableObject.cs" />
+    <Compile Include="Model\RomanNumber.cs" />
     <Compile Include="RomanNumberExceptions\InvalidRomanNumberException.cs" />
     <Compile Include="RomanNumberValidator.cs" />
     <Compile Include="RomanNumberSpecification\ConsecutiveRomanPositionalsMustBeDescendingAndUnique.cs" />
