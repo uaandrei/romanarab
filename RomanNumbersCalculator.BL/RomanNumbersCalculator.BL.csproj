@@ -40,6 +40,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Calculator\StringBasedCalculator.cs" />
+    <Compile Include="Calculator\ICalculator.cs" />
     <Compile Include="IRomanNumberValidator.cs" />
     <Compile Include="RomanNumberValidator.cs" />
     <Compile Include="RomanNumberSpecification\ConsecutiveRomanPositionalsMustBeDescendingAndUnique.cs" />

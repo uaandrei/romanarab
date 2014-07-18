@@ -60,6 +60,7 @@
     <Compile Include="RomanPositionalIdentifierTests.cs" />
     <Compile Include="ConsecutiveRomanPositionalsMustBeDescendingAndUniqueTests.cs" />
     <Compile Include="RomanNumberValidatorTests.cs" />
+    <Compile Include="StringBasedCalculatorTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\RomanNumbersCalculator.BL\RomanNumbersCalculator.BL.csproj">
