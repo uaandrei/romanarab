@@ -1,11 +1,13 @@
 ﻿using System.ComponentModel;
+using System.Runtime.CompilerServices;
+
 namespace RomanNumbersCalculator.ViewModel
 {
     public class ViewModelBase : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
-        public void NotifyPropertyChanged(string propertyName)
+        protected void NotifyPropertyChanged([CallerMemberName]string propertyName = "")
         {
             if (PropertyChanged != null)
             {

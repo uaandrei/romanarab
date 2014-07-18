@@ -22,7 +22,7 @@ namespace RomanNumbersCalculator.ViewModel
                 if (_firstNumber != value)
                 {
                     _firstNumber = value;
-                    NotifyPropertyChanged("FirstNumber");
+                    NotifyPropertyChanged();
                     AddValuesCommand.RaiseCanExecuteChanged();
                 }
             }
@@ -39,7 +39,7 @@ namespace RomanNumbersCalculator.ViewModel
                 if (_secondNumber != value)
                 {
                     _secondNumber = value;
-                    NotifyPropertyChanged("SecondNumber");
+                    NotifyPropertyChanged();
                     AddValuesCommand.RaiseCanExecuteChanged();
                 }
             }
@@ -56,7 +56,7 @@ namespace RomanNumbersCalculator.ViewModel
                 if (_result != value)
                 {
                     _result = value;
-                    NotifyPropertyChanged("Result");
+                    NotifyPropertyChanged();
                 }
             }
         }
