@@ -5,14 +5,14 @@ using RomanNumbersCalculator.BL.RomanNumberSpecification;
 namespace RomanNumbersCalculator.Tests
 {
     [TestClass]
-    public class ConsecutiveRomanPositionalsMustBeDescendingTests
+    public class ConsecutiveRomanPositionalsMustBeDescendingAndUniqueTests
     {
-        private ConsecutiveRomanPositionalsMustBeDescending _descendingPositionalsSpec;
+        private ConsecutiveRomanPositionalsMustBeDescendingAndUnique _descendingPositionalsSpec;
 
         [TestInitialize]
         public void TestInitialize()
         {
-            _descendingPositionalsSpec = new ConsecutiveRomanPositionalsMustBeDescending();
+            _descendingPositionalsSpec = new ConsecutiveRomanPositionalsMustBeDescendingAndUnique();
         }
 
         [TestMethod]

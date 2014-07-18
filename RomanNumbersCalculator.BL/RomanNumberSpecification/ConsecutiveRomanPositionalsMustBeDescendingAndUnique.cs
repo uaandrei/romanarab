@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace RomanNumbersCalculator.BL.RomanNumberSpecification
 {
-    public class ConsecutiveRomanPositionalsMustBeDescending : ISpecification<string>
+    public class ConsecutiveRomanPositionalsMustBeDescendingAndUnique : ISpecification<string>
     {
         private RomanStringParser _romanStringParser;
         private List<string> _listOfUnitNumbers;
@@ -12,7 +12,7 @@ namespace RomanNumbersCalculator.BL.RomanNumberSpecification
         private List<string> _listOfHundredNumbers;
         private List<string> _listOfThousandsNumbers;
 
-        public ConsecutiveRomanPositionalsMustBeDescending()
+        public ConsecutiveRomanPositionalsMustBeDescendingAndUnique()
         {
             var romanNumbersGenerator = new RomanNumbersGenerator();
             _listOfUnitNumbers = romanNumbersGenerator.GenerateRomanUnits();
@@ -47,10 +47,13 @@ namespace RomanNumbersCalculator.BL.RomanNumberSpecification
                 }
             }
 
-            var sortedRomanPositionalList = romanPositionalList.Select(p => p).OrderBy(p => p).ToList();
-            for (int i = 0; i < sortedRomanPositionalList.Count; i++)
+            var correctRomanPositionalList = new List<RomanPositionalCategory> { RomanPositionalCategory.Thousands, RomanPositionalCategory.Hundreds, RomanPositionalCategory.Tens, RomanPositionalCategory.Units };
+
+            correctRomanPositionalList = correctRomanPositionalList.Intersect(romanPositionalList).ToList();
+
+            for (int i = 0; i < correctRomanPositionalList.Count; i++)
             {
-                if (romanPositionalList[i] != sortedRomanPositionalList[i])
+                if (romanPositionalList[i] != correctRomanPositionalList[i])
                     return false;
             }
 
