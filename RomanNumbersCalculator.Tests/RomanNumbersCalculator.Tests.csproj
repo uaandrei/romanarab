@@ -60,6 +60,7 @@
     <Compile Include="RomanStringParserTests.cs" />
     <Compile Include="RomanSymbolLimitInStringTests.cs" />
     <Compile Include="RomanPositionalIdentifierTests.cs" />
+    <Compile Include="ConsecutiveRomanPositionalsMustBeDescendingTests.cs" />
     <Compile Include="XorSpecificationTests.cs" />
   </ItemGroup>
   <ItemGroup>

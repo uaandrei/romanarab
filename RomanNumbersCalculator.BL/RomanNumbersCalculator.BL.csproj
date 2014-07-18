@@ -40,6 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="RomanNumberSpecification\ConsecutiveRomanPositionalsMustBeDescending.cs" />
     <Compile Include="RomanPositionalIdentifier.cs" />
     <Compile Include="Specification\SymbolLimitInString.cs" />
     <Compile Include="Specification\AndSpecification.cs" />
