@@ -40,16 +40,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Calculator\RomanNumberCalculator.cs" />
     <Compile Include="Calculator\StringBasedCalculator.cs" />
     <Compile Include="Calculator\ICalculator.cs" />
     <Compile Include="IRomanNumberValidator.cs" />
+    <Compile Include="RomanNumberExceptions\InvalidRomanNumberException.cs" />
     <Compile Include="RomanNumberValidator.cs" />
     <Compile Include="RomanNumberSpecification\ConsecutiveRomanPositionalsMustBeDescendingAndUnique.cs" />
     <Compile Include="RomanPositionalIdentifier.cs" />
     <Compile Include="RomanSymbolsGroup.cs" />
     <Compile Include="RomanStringParser.cs" />
     <Compile Include="RomanNumberSpecification\ISpecification.cs" />
-    <Compile Include="RomanNumbersGenerator.cs" />
+    <Compile Include="RomanNumbersContainer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

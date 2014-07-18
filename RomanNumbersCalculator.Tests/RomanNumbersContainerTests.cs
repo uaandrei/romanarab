@@ -4,20 +4,12 @@ using RomanNumbersCalculator.BL;
 namespace RomanNumbersCalculator.Tests
 {
     [TestClass]
-    public class RomanNumbersGeneratorTests
+    public class RomanNumbersContainerTests
     {
-        private RomanNumbersGenerator _romanNumbersGenerator;
-
-        [TestInitialize]
-        public void TestInitialize()
-        {
-            _romanNumbersGenerator = new RomanNumbersGenerator();
-        }
-
         [TestMethod]
         public void GenerateRomanUnits_ReturnsAllRomanUnits()
         {
-            var actualRomanNumbers = _romanNumbersGenerator.GenerateRomanUnits();
+            var actualRomanNumbers = RomanNumbersContainer.Instance.Units;
 
             var expectedRomanNumbers = new[] { "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX" };
 
@@ -30,7 +22,7 @@ namespace RomanNumbersCalculator.Tests
         [TestMethod]
         public void GenerateRomanTens_ReturnsAllRomanTens()
         {
-            var actualRomanNumbers = _romanNumbersGenerator.GenerateRomanTens();
+            var actualRomanNumbers = RomanNumbersContainer.Instance.Tens;
 
             var expectedRomanNumbers = new[] { "X", "XX", "XXX", "XL", "L", "LX", "LXX", "LXXX", "XC" };
 
@@ -43,7 +35,7 @@ namespace RomanNumbersCalculator.Tests
         [TestMethod]
         public void GenerateRomanHundreds_ReturnsAllRomanHundreds()
         {
-            var actualRomanNumbers = _romanNumbersGenerator.GenerateRomanHundreds();
+            var actualRomanNumbers = RomanNumbersContainer.Instance.Hundreds;
 
             var expectedRomanNumbers = new[] { "C", "CC", "CCC", "CD", "D", "DC", "DCC", "DCCC", "CM" };
 

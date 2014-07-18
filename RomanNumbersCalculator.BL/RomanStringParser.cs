@@ -5,22 +5,21 @@ namespace RomanNumbersCalculator.BL
 {
     public class RomanStringParser
     {
-        private List<string> _listOfUnitNumbers;
-        private List<string> _listOfTenNumbers;
-        private List<string> _listOfHundredNumbers;
-        private List<string> _listOfThousandsNumbers;
+        private List<string> _reversedListOfUnitNumbers;
+        private List<string> _reversedListOfTenNumbers;
+        private List<string> _reversedListOfHundredNumbers;
+        private List<string> _reversedListOfThousandsNumbers;
 
         public RomanStringParser()
         {
-            var romanNumbersGenerator = new RomanNumbersGenerator();
-            _listOfUnitNumbers = romanNumbersGenerator.GenerateRomanUnits();
-            _listOfUnitNumbers.Reverse();
-            _listOfTenNumbers = romanNumbersGenerator.GenerateRomanTens();
-            _listOfTenNumbers.Reverse();
-            _listOfHundredNumbers = romanNumbersGenerator.GenerateRomanHundreds();
-            _listOfHundredNumbers.Reverse();
-            _listOfThousandsNumbers = romanNumbersGenerator.GenerateRomanThousands();
-            _listOfThousandsNumbers.Reverse();
+            _reversedListOfUnitNumbers = new List<string>(RomanNumbersContainer.Instance.Units);
+            _reversedListOfUnitNumbers.Reverse();
+            _reversedListOfTenNumbers = new List<string>(RomanNumbersContainer.Instance.Tens);
+            _reversedListOfTenNumbers.Reverse();
+            _reversedListOfHundredNumbers = new List<string>(RomanNumbersContainer.Instance.Hundreds);
+            _reversedListOfHundredNumbers.Reverse();
+            _reversedListOfThousandsNumbers = new List<string>(RomanNumbersContainer.Instance.Thousands);
+            _reversedListOfThousandsNumbers.Reverse();
         }
 
         public List<string> Parse(string romanString)
@@ -32,10 +31,10 @@ namespace RomanNumbersCalculator.BL
             while (true)
             {
                 indexesAndNumbers.Clear();
-                TryToAddKeyValuePairToDictionary(GetFirstIndexAndFoundNumberInString(romanString, _listOfUnitNumbers), indexesAndNumbers);
-                TryToAddKeyValuePairToDictionary(GetFirstIndexAndFoundNumberInString(romanString, _listOfTenNumbers), indexesAndNumbers);
-                TryToAddKeyValuePairToDictionary(GetFirstIndexAndFoundNumberInString(romanString, _listOfHundredNumbers), indexesAndNumbers);
-                TryToAddKeyValuePairToDictionary(GetFirstIndexAndFoundNumberInString(romanString, _listOfThousandsNumbers), indexesAndNumbers);
+                TryToAddKeyValuePairToDictionary(GetFirstIndexAndFoundNumberInString(romanString, _reversedListOfUnitNumbers), indexesAndNumbers);
+                TryToAddKeyValuePairToDictionary(GetFirstIndexAndFoundNumberInString(romanString, _reversedListOfTenNumbers), indexesAndNumbers);
+                TryToAddKeyValuePairToDictionary(GetFirstIndexAndFoundNumberInString(romanString, _reversedListOfHundredNumbers), indexesAndNumbers);
+                TryToAddKeyValuePairToDictionary(GetFirstIndexAndFoundNumberInString(romanString, _reversedListOfThousandsNumbers), indexesAndNumbers);
 
                 firstFoundRomanNumberIndex = indexesAndNumbers.Min(p => p.Key);
 

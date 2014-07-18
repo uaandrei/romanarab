@@ -6,19 +6,12 @@ namespace RomanNumbersCalculator.BL.RomanNumberSpecification
     public class ConsecutiveRomanPositionalsMustBeDescendingAndUnique : ISpecification<string>
     {
         private RomanStringParser _romanStringParser;
-        private List<string> _listOfUnitNumbers;
-        private List<string> _listOfTenNumbers;
-        private List<string> _listOfHundredNumbers;
-        private List<string> _listOfThousandsNumbers;
+        private RomanPositionalIdentifier _identifier;
 
         public ConsecutiveRomanPositionalsMustBeDescendingAndUnique()
         {
-            var romanNumbersGenerator = new RomanNumbersGenerator();
-            _listOfUnitNumbers = romanNumbersGenerator.GenerateRomanUnits();
-            _listOfTenNumbers = romanNumbersGenerator.GenerateRomanTens();
-            _listOfHundredNumbers = romanNumbersGenerator.GenerateRomanHundreds();
-            _listOfThousandsNumbers = romanNumbersGenerator.GenerateRomanThousands();
             _romanStringParser = new RomanStringParser();
+            _identifier = new RomanPositionalIdentifier();
         }
 
         public bool IsSatisfiedBy(string candidate)
@@ -28,19 +21,19 @@ namespace RomanNumbersCalculator.BL.RomanNumberSpecification
             var numbers = _romanStringParser.Parse(candidate);
             foreach (var number in numbers)
             {
-                if (_listOfUnitNumbers.Contains(number))
+                if (_identifier.IsFromUnits(number))
                 {
                     romanPositionalList.Add(RomanPositionalCategory.Units);
                 }
-                else if (_listOfTenNumbers.Contains(number))
+                else if (_identifier.IsFromTens(number))
                 {
                     romanPositionalList.Add(RomanPositionalCategory.Tens);
                 }
-                else if (_listOfHundredNumbers.Contains(number))
+                else if (_identifier.IsFromHundreds(number))
                 {
                     romanPositionalList.Add(RomanPositionalCategory.Hundreds);
                 }
-                else if (_listOfThousandsNumbers.Contains(number))
+                else if (_identifier.IsFromThousands(number))
                 {
                     romanPositionalList.Add(RomanPositionalCategory.Thousands);
                 }

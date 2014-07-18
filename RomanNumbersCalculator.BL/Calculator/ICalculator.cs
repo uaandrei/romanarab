@@ -2,6 +2,6 @@
 {
     public interface ICalculator<T>
     {
-        T Add(T value1, T value2, out bool hasTransport);
+        T Add(T value1, T value2, ref bool hasTransport);
     }
 }
