@@ -10,7 +10,7 @@ namespace RomanNumbersCalculator.Tests
         private AndSpecification<object> _andSpecification;
 
         [TestMethod]
-        public void IsSatisfiedBy_Should_ReturnTrue_When_BothSpecificationsAreTrue()
+        public void IsSatisfiedBy_ReturnsTrue_When_BothSpecificationsAreTrue()
         {
             var mockedAndSpecification1 = new Mock<ISpecification<object>>();
             mockedAndSpecification1.Setup(p => p.IsSatisfiedBy(It.IsAny<object>())).Returns(true);
@@ -23,7 +23,7 @@ namespace RomanNumbersCalculator.Tests
         }
 
         [TestMethod]
-        public void IsSatisfiedBy_Should_ReturnFalse_When_FirstSpecificationIsTrueAndSecondIsFalse()
+        public void IsSatisfiedBy_ReturnsFalse_When_FirstSpecificationIsTrueAndSecondIsFalse()
         {
             var mockedAndSpecification1 = new Mock<ISpecification<object>>();
             mockedAndSpecification1.Setup(p => p.IsSatisfiedBy(It.IsAny<object>())).Returns(true);
@@ -36,7 +36,7 @@ namespace RomanNumbersCalculator.Tests
         }
 
         [TestMethod]
-        public void IsSatisfiedBy_Should_ReturnFalse_When_FirstSpecificationIsFalseAndSecondIsTrue()
+        public void IsSatisfiedBy_ReturnsFalse_When_FirstSpecificationIsFalseAndSecondIsTrue()
         {
             var mockedAndSpecification1 = new Mock<ISpecification<object>>();
             mockedAndSpecification1.Setup(p => p.IsSatisfiedBy(It.IsAny<object>())).Returns(false);
@@ -49,7 +49,7 @@ namespace RomanNumbersCalculator.Tests
         }
 
         [TestMethod]
-        public void IsSatisfiedBy_Should_ReturnFalse_When_BothSpecificationsAreFalse()
+        public void IsSatisfiedBy_ReturnsFalse_When_BothSpecificationsAreFalse()
         {
             var mockedAndSpecification1 = new Mock<ISpecification<object>>();
             mockedAndSpecification1.Setup(p => p.IsSatisfiedBy(It.IsAny<object>())).Returns(false);

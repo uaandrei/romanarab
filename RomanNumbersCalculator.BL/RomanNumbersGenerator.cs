@@ -6,7 +6,27 @@ namespace RomanNumbersCalculator.BL
 {
     public class RomanNumbersGenerator
     {
-        public List<string> GenerateRomanNumbers(RomanSymbolsGroup romanNumbersGroup)
+        public List<string> GenerateRomanUnits()
+        {
+            return GenerateRomanNumbers(RomanSymbolsGroup.UnitsGroup);
+        }
+
+        public List<string> GenerateRomanTens()
+        {
+            return GenerateRomanNumbers(RomanSymbolsGroup.TensGroup);
+        }
+
+        public List<string> GenerateRomanHundreds()
+        {
+            return GenerateRomanNumbers(RomanSymbolsGroup.HundredsGroup);
+        }
+
+        public List<string> GenerateRomanThousands()
+        {
+            return new List<string> { "M", "MM", "MMM" };
+        }
+
+        private List<string> GenerateRomanNumbers(RomanSymbolsGroup romanNumbersGroup)
         {
             var romanNumber = string.Empty;
             var romanNumbers = new List<string>();
@@ -18,11 +38,6 @@ namespace RomanNumbersCalculator.BL
             romanNumbers.Add(romanNumbersGroup.FirstNumber + romanNumbersGroup.MaxNumber);
 
             return romanNumbers;
-        }
-
-        public static List<string> GenerateRomanThousands()
-        {
-            return new List<string> { "M", "MM", "MMM" };
         }
 
         private IEnumerable<string> GetNextThreeNumbersStartingFrom(string startingValue, string incrementValue)

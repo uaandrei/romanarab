@@ -11,10 +11,10 @@ namespace RomanNumbersCalculator.BL
         public RomanPositionalIdentifier()
         {
             var romanNumbersGenerator = new RomanNumbersGenerator();
-            _listOfUnitNumbers = romanNumbersGenerator.GenerateRomanNumbers(new RomanSymbolsGroup("I", "V", "X"));
-            _listOfTenNumbers = romanNumbersGenerator.GenerateRomanNumbers(new RomanSymbolsGroup("X", "L", "C"));
-            _listOfHundredNumbers = romanNumbersGenerator.GenerateRomanNumbers(new RomanSymbolsGroup("C", "D", "M"));
-            _listOfThousandsNumbers = RomanNumbersGenerator.GenerateRomanThousands();
+            _listOfUnitNumbers = romanNumbersGenerator.GenerateRomanUnits();
+            _listOfTenNumbers = romanNumbersGenerator.GenerateRomanTens();
+            _listOfHundredNumbers = romanNumbersGenerator.GenerateRomanHundreds();
+            _listOfThousandsNumbers = romanNumbersGenerator.GenerateRomanThousands();
         }
 
         public bool IsFromUnits(string romanNumber)

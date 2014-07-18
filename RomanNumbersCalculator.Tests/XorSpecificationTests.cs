@@ -10,7 +10,7 @@ namespace RomanNumbersCalculator.Tests
         private XorSpecification<object> _xorSpecification;
 
         [TestMethod]
-        public void IsSatisfiedBy_Should_ReturnFalse_When_BothSpecificationsAreTrue()
+        public void IsSatisfiedBy_ReturnsFalse_When_BothSpecificationsAreTrue()
         {
             var mockedXorSpecification1 = new Mock<ISpecification<object>>();
             mockedXorSpecification1.Setup(p => p.IsSatisfiedBy(It.IsAny<object>())).Returns(true);
@@ -23,7 +23,7 @@ namespace RomanNumbersCalculator.Tests
         }
 
         [TestMethod]
-        public void IsSatisfiedBy_Should_ReturnTrue_When_FirstSpecificationIsTrueAndSecondIsFalse()
+        public void IsSatisfiedBy_ReturnsTrue_When_FirstSpecificationIsTrueAndSecondIsFalse()
         {
             var mockedXorSpecification1 = new Mock<ISpecification<object>>();
             mockedXorSpecification1.Setup(p => p.IsSatisfiedBy(It.IsAny<object>())).Returns(true);
@@ -36,7 +36,7 @@ namespace RomanNumbersCalculator.Tests
         }
 
         [TestMethod]
-        public void IsSatisfiedBy_Should_ReturnTrue_When_FirstSpecificationIsFalseAndSecondIsTrue()
+        public void IsSatisfiedBy_ReturnsTrue_When_FirstSpecificationIsFalseAndSecondIsTrue()
         {
             var mockedXorSpecification1 = new Mock<ISpecification<object>>();
             mockedXorSpecification1.Setup(p => p.IsSatisfiedBy(It.IsAny<object>())).Returns(false);
@@ -49,7 +49,7 @@ namespace RomanNumbersCalculator.Tests
         }
 
         [TestMethod]
-        public void IsSatisfiedBy_Should_ReturnFalse_When_BothSpecificationsAreFalse()
+        public void IsSatisfiedBy_ReturnsFalse_When_BothSpecificationsAreFalse()
         {
             var mockedXorSpecification1 = new Mock<ISpecification<object>>();
             mockedXorSpecification1.Setup(p => p.IsSatisfiedBy(It.IsAny<object>())).Returns(false);

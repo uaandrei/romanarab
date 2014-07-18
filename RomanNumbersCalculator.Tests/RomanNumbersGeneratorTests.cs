@@ -15,11 +15,9 @@ namespace RomanNumbersCalculator.Tests
         }
 
         [TestMethod]
-        public void GenerateRomanNumbers_Should_GenerateAllUnitsRomanNumbers_When_IVX_RomanGroupIsPassed()
+        public void GenerateRomanUnits_ReturnsAllRomanUnits()
         {
-            var romanUnitsSymbolsGroup = new RomanSymbolsGroup("I", "V", "X");
-
-            var actualRomanNumbers = _romanNumbersGenerator.GenerateRomanNumbers(romanUnitsSymbolsGroup);
+            var actualRomanNumbers = _romanNumbersGenerator.GenerateRomanUnits();
 
             var expectedRomanNumbers = new[] { "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX" };
 
@@ -30,11 +28,9 @@ namespace RomanNumbersCalculator.Tests
         }
 
         [TestMethod]
-        public void GenerateRomanNumbers_Should_GenerateAllTensRomanNumbers_When_XLC_RomanGroupIsPassed()
+        public void GenerateRomanTens_ReturnsAllRomanTens()
         {
-            var romanTensSymbolsGroup = new RomanSymbolsGroup("X", "L", "C");
-
-            var actualRomanNumbers = _romanNumbersGenerator.GenerateRomanNumbers(romanTensSymbolsGroup);
+            var actualRomanNumbers = _romanNumbersGenerator.GenerateRomanTens();
 
             var expectedRomanNumbers = new[] { "X", "XX", "XXX", "XL", "L", "LX", "LXX", "LXXX", "XC" };
 
@@ -45,11 +41,9 @@ namespace RomanNumbersCalculator.Tests
         }
 
         [TestMethod]
-        public void GenerateRomanNumbers_Should_GenerateAllHundredsRomanNumbers_When_XLC_RomanGroupIsPassed()
+        public void GenerateRomanHundreds_ReturnsAllRomanHundreds()
         {
-            var romanHundredsSymbolsGroup = new RomanSymbolsGroup("C", "D", "M");
-
-            var actualRomanNumbers = _romanNumbersGenerator.GenerateRomanNumbers(romanHundredsSymbolsGroup);
+            var actualRomanNumbers = _romanNumbersGenerator.GenerateRomanHundreds();
 
             var expectedRomanNumbers = new[] { "C", "CC", "CCC", "CD", "D", "DC", "DCC", "DCCC", "CM" };
 

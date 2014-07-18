@@ -9,7 +9,7 @@ namespace RomanNumbersCalculator.Tests
     public class RomanSymbolLimitInStringTests
     {
         [TestMethod]
-        public void IsSatisfiedBy_Should_ReturnTrue_WhenPassedStringContains3OrLessOfTheSymbolSpecified()
+        public void IsSatisfiedBy_ReturnsTrue_WhenPassedStringContains3OrLessOfTheSymbolSpecified()
         {
             var specifiedSymbol = "I";
             var romanSymbolLimitInString = new SymbolLimitInString(specifiedSymbol, 3);
@@ -19,7 +19,7 @@ namespace RomanNumbersCalculator.Tests
         }
 
         [TestMethod]
-        public void IsSatisfiedBy_Should_ReturnFalse_WhenPassedStringContainsMoreThan3OfTheSymbolSpecified()
+        public void IsSatisfiedBy_ReturnsFalse_WhenPassedStringContainsMoreThan3OfTheSymbolSpecified()
         {
             var specifiedSymbol = "I";
             var romanSymbolLimitInString = new SymbolLimitInString(specifiedSymbol, 3);
@@ -29,7 +29,7 @@ namespace RomanNumbersCalculator.Tests
         }
 
         [TestMethod]
-        public void IsSatisfiedBy_Should_ReturnTrue_WhenPassedStringContains1OrLessOfTheSymbolSpecified()
+        public void IsSatisfiedBy_ReturnsTrue_WhenPassedStringContains1OrLessOfTheSymbolSpecified()
         {
             var specifiedSymbol = "V";
             var romanSymbolLimitInString = new SymbolLimitInString(specifiedSymbol, 1);
@@ -39,7 +39,7 @@ namespace RomanNumbersCalculator.Tests
         }
 
         [TestMethod]
-        public void IsSatisfiedBy_Should_ReturnFalse_WhenPassedStringContainsMoreThan1OfTheSymbolSpecified()
+        public void IsSatisfiedBy_ReturnsFalse_WhenPassedStringContainsMoreThan1OfTheSymbolSpecified()
         {
             var specifiedSymbol = "V";
             var romanSymbolLimitInString = new SymbolLimitInString(specifiedSymbol, 1);
@@ -49,7 +49,7 @@ namespace RomanNumbersCalculator.Tests
         }
 
         [TestMethod]
-        public void IsSatisfiedBy_Should_ReturnTrue_WhenPassedStringDoesntContainTheSymbolSpecified()
+        public void IsSatisfiedBy_ReturnsTrue_WhenPassedStringDoesntContainTheSymbolSpecified()
         {
             var specifiedSymbol = "V";
             var romanSymbolLimitInString = new SymbolLimitInString(specifiedSymbol, 1);
