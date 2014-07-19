@@ -1,8 +1,9 @@
-﻿using System;
-using System.Linq;
+﻿using RomanNumbersCalculator.BL.NumberProvider;
 using RomanNumbersCalculator.BL.RomanNumberExceptions;
 using RomanNumbersCalculator.BL.RomanNumberSpecification;
+using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace RomanNumbersCalculator.BL.Calculator
 {
@@ -10,31 +11,32 @@ namespace RomanNumbersCalculator.BL.Calculator
     {
         private RomanNumberValidator _numberValidator;
         private RomanStringParser _parser;
-        private RomanPositionalIdentifier _identifier;
+        private PositionalIdentifier _identifier;
         private StringBasedCalculator _unitsCalculator;
         private StringBasedCalculator _tensCalculator;
         private StringBasedCalculator _hundredsCalculator;
         private StringBasedCalculator _thousandsCalculator;
+        private RomanNumbersProvider _romanNumbersContainer = new RomanNumbersProvider();
 
         public RomanNumberCalculator()
         {
             _numberValidator = new RomanNumberValidator(new ConsecutiveRomanPositionalsMustBeDescendingAndUnique());
             _parser = new RomanStringParser();
-            _identifier = new RomanPositionalIdentifier();
+            _identifier = new PositionalIdentifier(new RomanNumbersProvider());
             var symbols = new List<string>() { null };
-            symbols.AddRange(RomanNumbersContainer.Instance.Units);
+            symbols.AddRange(_romanNumbersContainer.Units);
             _unitsCalculator = new StringBasedCalculator(symbols);
 
             symbols = new List<string>() { null };
-            symbols.AddRange(RomanNumbersContainer.Instance.Tens);
+            symbols.AddRange(_romanNumbersContainer.Tens);
             _tensCalculator = new StringBasedCalculator(symbols);
 
             symbols = new List<string>() { null };
-            symbols.AddRange(RomanNumbersContainer.Instance.Hundreds);
+            symbols.AddRange(_romanNumbersContainer.Hundreds);
             _hundredsCalculator = new StringBasedCalculator(symbols);
 
             symbols = new List<string>() { null };
-            symbols.AddRange(RomanNumbersContainer.Instance.Thousands);
+            symbols.AddRange(_romanNumbersContainer.Thousands);
             _thousandsCalculator = new StringBasedCalculator(symbols);
         }
 

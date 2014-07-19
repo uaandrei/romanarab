@@ -56,10 +56,10 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="RomanNumbersContainerTests.cs" />
+    <Compile Include="RomanNumbersProviderTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RomanStringParserTests.cs" />
-    <Compile Include="RomanPositionalIdentifierTests.cs" />
+    <Compile Include="PositionalIdentifierTests.cs" />
     <Compile Include="ConsecutiveRomanPositionalsMustBeDescendingAndUniqueTests.cs" />
     <Compile Include="RomanNumberValidatorTests.cs" />
     <Compile Include="StringBasedCalculatorTests.cs" />

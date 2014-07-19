@@ -1,15 +1,17 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using RomanNumbersCalculator.BL;
+using RomanNumbersCalculator.BL.NumberProvider;
 
 namespace RomanNumbersCalculator.Tests
 {
     [TestClass]
-    public class RomanNumbersContainerTests
+    public class RomanNumbersProviderTests
     {
+        private RomanNumbersProvider _romanNumbersContainer = new RomanNumbersProvider();
+
         [TestMethod]
         public void GenerateRomanUnits_ReturnsAllRomanUnits()
         {
-            var actualRomanNumbers = RomanNumbersContainer.Instance.Units;
+            var actualRomanNumbers = _romanNumbersContainer.Units;
 
             var expectedRomanNumbers = new[] { "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX" };
 
@@ -22,7 +24,7 @@ namespace RomanNumbersCalculator.Tests
         [TestMethod]
         public void GenerateRomanTens_ReturnsAllRomanTens()
         {
-            var actualRomanNumbers = RomanNumbersContainer.Instance.Tens;
+            var actualRomanNumbers = _romanNumbersContainer.Tens;
 
             var expectedRomanNumbers = new[] { "X", "XX", "XXX", "XL", "L", "LX", "LXX", "LXXX", "XC" };
 
@@ -35,7 +37,7 @@ namespace RomanNumbersCalculator.Tests
         [TestMethod]
         public void GenerateRomanHundreds_ReturnsAllRomanHundreds()
         {
-            var actualRomanNumbers = RomanNumbersContainer.Instance.Hundreds;
+            var actualRomanNumbers = _romanNumbersContainer.Hundreds;
 
             var expectedRomanNumbers = new[] { "C", "CC", "CCC", "CD", "D", "DC", "DCC", "DCCC", "CM" };
 

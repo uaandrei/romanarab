@@ -1,18 +1,19 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using RomanNumbersCalculator.BL;
+using RomanNumbersCalculator.BL.NumberProvider;
 
 namespace RomanNumbersCalculator.Tests
 {
     [TestClass]
-    public class RomanPositionalIdentifierTests
+    public class PositionalIdentifierTests
     {
-        private RomanPositionalIdentifier _romanPositionalIdentifier;
+        private PositionalIdentifier _romanPositionalIdentifier;
 
         [TestInitialize]
         public void TestInitialize()
         {
-            _romanPositionalIdentifier = new RomanPositionalIdentifier();
+            _romanPositionalIdentifier = new PositionalIdentifier(new RomanNumbersProvider());
         }
 
 

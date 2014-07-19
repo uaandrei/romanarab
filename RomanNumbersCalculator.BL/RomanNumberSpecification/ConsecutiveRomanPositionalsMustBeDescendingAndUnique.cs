@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using RomanNumbersCalculator.BL.NumberProvider;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace RomanNumbersCalculator.BL.RomanNumberSpecification
@@ -6,12 +7,12 @@ namespace RomanNumbersCalculator.BL.RomanNumberSpecification
     public class ConsecutiveRomanPositionalsMustBeDescendingAndUnique : ISpecification<string>
     {
         private RomanStringParser _romanStringParser;
-        private RomanPositionalIdentifier _identifier;
+        private PositionalIdentifier _identifier;
 
         public ConsecutiveRomanPositionalsMustBeDescendingAndUnique()
         {
             _romanStringParser = new RomanStringParser();
-            _identifier = new RomanPositionalIdentifier();
+            _identifier = new PositionalIdentifier(new RomanNumbersProvider());
         }
 
         public bool IsSatisfiedBy(string candidate)

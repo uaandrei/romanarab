@@ -1,12 +1,12 @@
-﻿using System;
+﻿using RomanNumbersCalculator.BL.NumberProvider;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace RomanNumbersCalculator.BL
+namespace RomanNumbersCalculator.BL.NumberProvider
 {
-    public class RomanNumbersContainer
+    public class RomanNumbersProvider : INumberProvider
     {
-        private static RomanNumbersContainer _instance;
         private List<string> _romanUnits;
         private List<string> _romanTens;
         private List<string> _romanHundreds;
@@ -44,19 +44,7 @@ namespace RomanNumbersCalculator.BL
             }
         }
 
-        public static RomanNumbersContainer Instance
-        {
-            get
-            {
-                if (_instance == null)
-                {
-                    _instance = new RomanNumbersContainer();
-                }
-                return _instance;
-            }
-        }
-
-        private RomanNumbersContainer()
+        public RomanNumbersProvider()
         {
             _romanUnits = GenerateRomanNumbers(RomanSymbolsGroup.UnitsGroup);
             _romanTens = GenerateRomanNumbers(RomanSymbolsGroup.TensGroup);

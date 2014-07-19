@@ -1,5 +1,6 @@
-﻿using System.Linq;
+﻿using RomanNumbersCalculator.BL.NumberProvider;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace RomanNumbersCalculator.BL
 {
@@ -9,16 +10,17 @@ namespace RomanNumbersCalculator.BL
         private List<string> _reversedListOfTenNumbers;
         private List<string> _reversedListOfHundredNumbers;
         private List<string> _reversedListOfThousandsNumbers;
+        private RomanNumbersProvider _romanNumbersContainer = new RomanNumbersProvider();
 
         public RomanStringParser()
         {
-            _reversedListOfUnitNumbers = new List<string>(RomanNumbersContainer.Instance.Units);
+            _reversedListOfUnitNumbers = new List<string>(_romanNumbersContainer.Units);
             _reversedListOfUnitNumbers.Reverse();
-            _reversedListOfTenNumbers = new List<string>(RomanNumbersContainer.Instance.Tens);
+            _reversedListOfTenNumbers = new List<string>(_romanNumbersContainer.Tens);
             _reversedListOfTenNumbers.Reverse();
-            _reversedListOfHundredNumbers = new List<string>(RomanNumbersContainer.Instance.Hundreds);
+            _reversedListOfHundredNumbers = new List<string>(_romanNumbersContainer.Hundreds);
             _reversedListOfHundredNumbers.Reverse();
-            _reversedListOfThousandsNumbers = new List<string>(RomanNumbersContainer.Instance.Thousands);
+            _reversedListOfThousandsNumbers = new List<string>(_romanNumbersContainer.Thousands);
             _reversedListOfThousandsNumbers.Reverse();
         }
 
