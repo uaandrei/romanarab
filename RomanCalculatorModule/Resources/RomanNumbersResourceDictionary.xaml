@@ -14,5 +14,6 @@
     <Style TargetType="TextBlock" x:Key="OutputTextBlock">
         <Setter Property="FontSize" Value="30"/>
         <Setter Property="TextAlignment" Value="Right"/>
+        <Setter Property="Background" Value="AliceBlue"/>
     </Style>
 </ResourceDictionary>

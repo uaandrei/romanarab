@@ -7,9 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RomanNumbersCalculator.BL",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RomanNumbersCalculator.Tests", "RomanNumbersCalculator.Tests\RomanNumbersCalculator.Tests.csproj", "{B134195E-1E9A-4712-A039-973EF7457671}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RomanNumbersCalculator.ViewModel", "RomanNumbersCalculator.ViewModel\RomanNumbersCalculator.ViewModel.csproj", "{48091E0A-4660-44A8-A6BE-1103E3C786C1}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RomanNumbersCalculator.GUI", "RomanNumbersCalculator.GUI\RomanNumbersCalculator.GUI.csproj", "{36E4CF43-0F8A-4D11-BAF5-B1B4B5134446}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AwesomeCalculator.Main", "RomanNumbersCalculator.GUI\AwesomeCalculator.Main.csproj", "{36E4CF43-0F8A-4D11-BAF5-B1B4B5134446}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{29F0A082-9521-402C-9D90-E167834F24CF}"
 	ProjectSection(SolutionItems) = preProject
@@ -18,6 +16,14 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{29F0A0
 		.nuget\NuGet.targets = .nuget\NuGet.targets
 		.nuget\packages.config = .nuget\packages.config
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RomanCalculatorModule", "RomanCalculatorModule\RomanCalculatorModule.csproj", "{D09B675F-8027-4392-B1C5-DB0A13D04693}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommonLibrary", "CommonLibrary\CommonLibrary.csproj", "{D4750B8E-D663-450C-AF90-F287D91852BD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NumberCalculator.Model", "NumberCalculator.Model\NumberCalculator.Model.csproj", "{98F32C42-FF62-4AA1-A015-53C39C97AECD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure", "Infrastructure\Infrastructure.csproj", "{FB416FB6-2AE7-46B6-A38A-94D9029D82A0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,14 +39,26 @@ Global
 		{B134195E-1E9A-4712-A039-973EF7457671}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B134195E-1E9A-4712-A039-973EF7457671}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B134195E-1E9A-4712-A039-973EF7457671}.Release|Any CPU.Build.0 = Release|Any CPU
-		{48091E0A-4660-44A8-A6BE-1103E3C786C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{48091E0A-4660-44A8-A6BE-1103E3C786C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{48091E0A-4660-44A8-A6BE-1103E3C786C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{48091E0A-4660-44A8-A6BE-1103E3C786C1}.Release|Any CPU.Build.0 = Release|Any CPU
 		{36E4CF43-0F8A-4D11-BAF5-B1B4B5134446}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{36E4CF43-0F8A-4D11-BAF5-B1B4B5134446}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{36E4CF43-0F8A-4D11-BAF5-B1B4B5134446}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{36E4CF43-0F8A-4D11-BAF5-B1B4B5134446}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D09B675F-8027-4392-B1C5-DB0A13D04693}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D09B675F-8027-4392-B1C5-DB0A13D04693}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D09B675F-8027-4392-B1C5-DB0A13D04693}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D09B675F-8027-4392-B1C5-DB0A13D04693}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D4750B8E-D663-450C-AF90-F287D91852BD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D4750B8E-D663-450C-AF90-F287D91852BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D4750B8E-D663-450C-AF90-F287D91852BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D4750B8E-D663-450C-AF90-F287D91852BD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{98F32C42-FF62-4AA1-A015-53C39C97AECD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{98F32C42-FF62-4AA1-A015-53C39C97AECD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{98F32C42-FF62-4AA1-A015-53C39C97AECD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{98F32C42-FF62-4AA1-A015-53C39C97AECD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FB416FB6-2AE7-46B6-A38A-94D9029D82A0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FB416FB6-2AE7-46B6-A38A-94D9029D82A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FB416FB6-2AE7-46B6-A38A-94D9029D82A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FB416FB6-2AE7-46B6-A38A-94D9029D82A0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

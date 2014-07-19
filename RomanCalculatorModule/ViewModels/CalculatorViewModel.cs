@@ -1,4 +1,5 @@
-﻿using Microsoft.Practices.Prism.Commands;
+﻿using Infrastructure;
+using Microsoft.Practices.Prism.Commands;
 using Microsoft.Practices.Unity;
 using RomanNumbersCalculator.BL.Calculator;
 using RomanNumbersCalculator.BL.Model;
@@ -7,10 +8,10 @@ using System;
 
 namespace RomanNumbersCalculator.ViewModel
 {
-    public class CalculatorViewModel : NotifiableObject
+    public class CalculatorViewModel : NotifiableObject, ICalculatorViewModel
     {
         private EditNumber _editNumber;
-        private NumberCalculator _romanNumberCalculator;
+        private INumberCalculator _numberCalculator;
 
         public Number FirstNumber
         {
@@ -39,10 +40,10 @@ namespace RomanNumbersCalculator.ViewModel
 
         public CalculatorViewModel(IUnityContainer unityContainer)
         {
-            FirstNumber = new Number();
-            SecondNumber = new Number();
-            Result = new Number();
-            _romanNumberCalculator = new NumberCalculator(unityContainer);
+            FirstNumber = new Number(unityContainer);
+            SecondNumber = new Number(unityContainer);
+            Result = new Number(unityContainer);
+            _numberCalculator = unityContainer.Resolve<INumberCalculator>();
             CalculateCommand = new DelegateCommand(OnCalculateExecute);
             FocusFirstNumberCommand = new DelegateCommand(OnFocusFirstNumberExecute);
             ClearFirstNumberCommand = new DelegateCommand(OnClearFirstNumberExecute);
@@ -67,7 +68,7 @@ namespace RomanNumbersCalculator.ViewModel
         {
             try
             {
-                Result.Value = _romanNumberCalculator.Add(FirstNumber.Value, SecondNumber.Value);
+                Result.Value = _numberCalculator.Add(FirstNumber.Value, SecondNumber.Value);
             }
             catch (InvalidNumberException e)
             {

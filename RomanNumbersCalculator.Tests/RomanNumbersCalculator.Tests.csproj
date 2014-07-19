@@ -74,6 +74,14 @@
     <Compile Include="Integration\RomanNumberCalculatorTests.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\CommonLibrary\CommonLibrary.csproj">
+      <Project>{d4750b8e-d663-450c-af90-f287d91852bd}</Project>
+      <Name>CommonLibrary</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Infrastructure\Infrastructure.csproj">
+      <Project>{fb416fb6-2ae7-46b6-a38a-94d9029d82a0}</Project>
+      <Name>Infrastructure</Name>
+    </ProjectReference>
     <ProjectReference Include="..\RomanNumbersCalculator.BL\RomanNumbersCalculator.BL.csproj">
       <Project>{29a6b0bb-48cf-4c2d-83fb-eea3fc384408}</Project>
       <Name>RomanNumbersCalculator.BL</Name>

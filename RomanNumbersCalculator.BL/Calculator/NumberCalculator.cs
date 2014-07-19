@@ -6,10 +6,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.Practices.Unity;
+using Infrastructure;
 
 namespace RomanNumbersCalculator.BL.Calculator
 {
-    public class NumberCalculator
+    public class NumberCalculator : INumberCalculator
     {
         private PositionalIdentifier _identifier;
         private StringBasedCalculator _unitsCalculator;

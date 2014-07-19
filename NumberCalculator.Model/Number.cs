@@ -1,4 +1,5 @@
-﻿using RomanNumbersCalculator.BL.RomanNumberSpecification;
+﻿using Microsoft.Practices.Unity;
+using RomanNumbersCalculator.BL.RomanNumberSpecification;
 using System;
 using System.ComponentModel;
 
@@ -36,10 +37,10 @@ namespace RomanNumbersCalculator.BL.Model
             }
         }
 
-        public Number()
+        public Number(IUnityContainer unityContainer)
         {
+            _specification = unityContainer.Resolve<ISpecification<string>>();
             _value = string.Empty;
-            _specification = new ConsecutiveRomanPositionalsMustBeDescendingAndUnique();
         }
     }
 }

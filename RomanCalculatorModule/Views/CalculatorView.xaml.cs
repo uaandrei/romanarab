@@ -1,4 +1,6 @@
-﻿using RomanNumbersCalculator.ViewModel;
+﻿using Infrastructure;
+using Microsoft.Practices.Unity;
+using RomanNumbersCalculator.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,17 +16,17 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace RomanNumbersCalculator.GUI.Views
+namespace RomanCalculatorModule.Views
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for CalculatorView.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class CalculatorView : UserControl
     {
-        public MainWindow()
+        public CalculatorView(IUnityContainer container)
         {
             InitializeComponent();
-            DataContext = new CalculatorViewModel(UnityHelper.Instance.UnityContainer);
+            DataContext = container.Resolve<ICalculatorViewModel>();
         }
     }
 }
