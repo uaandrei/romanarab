@@ -51,7 +51,7 @@ namespace RomanNumbersCalculator.Tests
         [ExpectedException(typeof(InvalidNumberException))]
         public void ToRoman_ThrowsException_When_ArabNumberIsTooBig()
         {
-            RomanNumberConverter.ToArab("4000");
+            RomanNumberConverter.ToRoman("4000");
             Assert.Fail("Test should fail when arab number is too big");
         }
     }
