@@ -1,6 +1,7 @@
 ﻿using Microsoft.Practices.Prism.Commands;
 using RomanNumbersCalculator.BL.Calculator;
 using RomanNumbersCalculator.BL.Model;
+using RomanNumbersCalculator.BL.RomanNumberExceptions;
 using System;
 
 namespace RomanNumbersCalculator.ViewModel
@@ -63,7 +64,18 @@ namespace RomanNumbersCalculator.ViewModel
 
         private void OnCalculateExecute()
         {
-            Result.Value = _romanNumberCalculator.Add(FirstNumber.Value, SecondNumber.Value);
+            try
+            {
+                Result.Value = _romanNumberCalculator.Add(FirstNumber.Value, SecondNumber.Value);
+            }
+            catch (InvalidRomanNumberException e)
+            {
+                Result.Value = e.Message;
+            }
+            catch (OverflowException e)
+            {
+                Result.Value = e.Message;
+            }
         }
 
         private void OnSendInputExecute(string value)
