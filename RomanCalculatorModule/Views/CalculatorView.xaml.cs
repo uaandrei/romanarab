@@ -1,20 +1,9 @@
-﻿using Infrastructure;
-using Microsoft.Practices.Unity;
+﻿using Microsoft.Practices.Unity;
+using RomanNumbersCalculator.BL.NumberProvider;
+using RomanNumbersCalculator.BL.RomanNumberSpecification;
+using RomanNumbersCalculator.BL.StringNumberParser;
 using RomanNumbersCalculator.ViewModel;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace RomanCalculatorModule.Views
 {
@@ -26,7 +15,8 @@ namespace RomanCalculatorModule.Views
         public CalculatorView(IUnityContainer container)
         {
             InitializeComponent();
-            DataContext = container.Resolve<ICalculatorViewModel>();
+            DataContext = new CalculatorViewModel(container);
+
         }
     }
 }

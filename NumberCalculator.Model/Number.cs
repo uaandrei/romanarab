@@ -1,5 +1,4 @@
-﻿using Microsoft.Practices.Unity;
-using RomanNumbersCalculator.BL.RomanNumberSpecification;
+﻿using RomanNumbersCalculator.BL.RomanNumberSpecification;
 using System;
 using System.ComponentModel;
 
@@ -27,6 +26,8 @@ namespace RomanNumbersCalculator.BL.Model
         {
             get
             {
+                if (_specification == null)
+                    return "";
                 switch (columnName)
                 {
                     case "Value":
@@ -37,10 +38,14 @@ namespace RomanNumbersCalculator.BL.Model
             }
         }
 
-        public Number(IUnityContainer unityContainer)
+        public Number()
         {
-            _specification = unityContainer.Resolve<ISpecification<string>>();
             _value = string.Empty;
+        }
+
+        public void SetSpecification(ISpecification<string> specification)
+        {
+            _specification = specification;
         }
     }
 }

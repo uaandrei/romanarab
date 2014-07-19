@@ -1,4 +1,6 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
+
 namespace RomanNumbersCalculator.BL.Calculator
 {
     public class StringBasedCalculator : ICalculator<string>

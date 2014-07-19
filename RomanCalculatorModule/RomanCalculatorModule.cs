@@ -17,11 +17,9 @@ namespace RomanCalculatorModule
         public RomanCalculatorModule(IRegionViewRegistry registry, IUnityContainer container)
         {
             _regionViewRegistry = registry;
-            container.RegisterType<ICalculatorViewModel, CalculatorViewModel>();
-            container.RegisterType<INumberCalculator, NumberCalculator>();
             container.RegisterType<IStringNumberParser, RomanStringParser>();
-            container.RegisterType<ISpecification<string>, ConsecutiveRomanPositionalsMustBeDescendingAndUnique>();
             container.RegisterType<INumberProvider, RomanNumbersProvider>();
+            container.RegisterType<ISpecification<string>, ConsecutiveRomanPositionalsMustBeDescendingAndUnique>();
         }
 
         public void Initialize()

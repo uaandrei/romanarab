@@ -68,6 +68,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="RomanCalculatorModule.cs" />
+    <Compile Include="UserControls\ArabNumbersControl.xaml.cs">
+      <DependentUpon>ArabNumbersControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\RomanNumbersControl.xaml.cs">
       <DependentUpon>RomanNumbersControl.xaml</DependentUpon>
     </Compile>
@@ -103,6 +106,10 @@
     <Page Include="Resources\RomanNumbersResourceDictionary.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\ArabNumbersControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControls\RomanNumbersControl.xaml">
       <Generator>MSBuild:Compile</Generator>

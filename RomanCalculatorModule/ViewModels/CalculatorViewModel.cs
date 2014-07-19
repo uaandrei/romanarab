@@ -1,10 +1,15 @@
 ﻿using Infrastructure;
 using Microsoft.Practices.Prism.Commands;
 using Microsoft.Practices.Unity;
+using RomanCalculatorModule.UserControls;
 using RomanNumbersCalculator.BL.Calculator;
 using RomanNumbersCalculator.BL.Model;
 using RomanNumbersCalculator.BL.NumberExceptions;
+using RomanNumbersCalculator.BL.NumberProvider;
+using RomanNumbersCalculator.BL.RomanNumberSpecification;
+using RomanNumbersCalculator.BL.StringNumberParser;
 using System;
+using System.Windows.Controls;
 
 namespace RomanNumbersCalculator.ViewModel
 {
@@ -12,23 +17,20 @@ namespace RomanNumbersCalculator.ViewModel
     {
         private EditNumber _editNumber;
         private INumberCalculator _numberCalculator;
+        private UserControl _userControl;
 
-        public Number FirstNumber
-        {
-            get;
-            set;
-        }
+        public Number FirstNumber { get; set; }
+        public Number SecondNumber { get; set; }
+        public Number Result { get; set; }
 
-        public Number SecondNumber
+        public UserControl InputControl
         {
-            get;
-            set;
-        }
-
-        public Number Result
-        {
-            get;
-            set;
+            get { return _userControl; }
+            set
+            {
+                _userControl = value;
+                NotifyPropertyChanged("InputControl");
+            }
         }
 
         public DelegateCommand CalculateCommand { get; set; }
@@ -36,20 +38,38 @@ namespace RomanNumbersCalculator.ViewModel
         public DelegateCommand ClearFirstNumberCommand { get; set; }
         public DelegateCommand FocusSecondNumberCommand { get; set; }
         public DelegateCommand ClearSecondNumberCommand { get; set; }
+        public DelegateCommand SwitchToRomanCommand { get; set; }
+        public DelegateCommand SwitchToArabCommand { get; set; }
         public DelegateCommand<string> SendInputCommand { get; set; }
 
-        public CalculatorViewModel(IUnityContainer unityContainer)
+        public CalculatorViewModel(IUnityContainer container)
         {
-            FirstNumber = new Number(unityContainer);
-            SecondNumber = new Number(unityContainer);
-            Result = new Number(unityContainer);
-            _numberCalculator = unityContainer.Resolve<INumberCalculator>();
             CalculateCommand = new DelegateCommand(OnCalculateExecute);
             FocusFirstNumberCommand = new DelegateCommand(OnFocusFirstNumberExecute);
             ClearFirstNumberCommand = new DelegateCommand(OnClearFirstNumberExecute);
             FocusSecondNumberCommand = new DelegateCommand(OnFocusSecondNumberExecute);
             ClearSecondNumberCommand = new DelegateCommand(OnClearSecondNumberExecute);
+            SwitchToArabCommand = new DelegateCommand(OnSwitchToArabExecute);
+            SwitchToRomanCommand = new DelegateCommand(OnSwitchToRomanExecute);
             SendInputCommand = new DelegateCommand<string>(OnSendInputExecute);
+            InputControl = new RomanNumbersControl();
+            FirstNumber = new Number();
+            FirstNumber.SetSpecification(container.Resolve<ISpecification<string>>());
+            SecondNumber = new Number();
+            SecondNumber.SetSpecification(container.Resolve<ISpecification<string>>());
+            Result = new Number();
+            Result.SetSpecification(container.Resolve<ISpecification<string>>());
+            _numberCalculator = new NumberCalculator(container);
+        }
+
+        private void OnSwitchToRomanExecute()
+        {
+            InputControl = new RomanNumbersControl();
+        }
+
+        private void OnSwitchToArabExecute()
+        {
+            InputControl = new ArabNumbersControl();
         }
 
         private void OnClearFirstNumberExecute()
@@ -101,6 +121,11 @@ namespace RomanNumbersCalculator.ViewModel
         private void OnFocusSecondNumberExecute()
         {
             _editNumber = EditNumber.Second;
+        }
+
+        private void InitializeCalculator(IUnityContainer unityContainer)
+        {
+            _numberCalculator = new NumberCalculator(unityContainer);
         }
 
         private enum EditNumber
