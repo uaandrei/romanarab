@@ -1,7 +1,5 @@
-﻿using System;
-using System.Linq;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using RomanNumbersCalculator.BL;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using RomanNumbersCalculator.BL.StringNumberParser;
 using System.Collections.Generic;
 
 namespace RomanNumbersCalculator.Tests

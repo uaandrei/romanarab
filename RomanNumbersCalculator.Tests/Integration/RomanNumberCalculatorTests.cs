@@ -1,19 +1,27 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using RomanNumbersCalculator.BL.Calculator;
-using RomanNumbersCalculator.BL.RomanNumberExceptions;
+using RomanNumbersCalculator.BL.NumberExceptions;
+using Microsoft.Practices.Unity;
+using RomanNumbersCalculator.BL.StringNumberParser;
+using RomanNumbersCalculator.BL.RomanNumberSpecification;
+using RomanNumbersCalculator.BL.NumberProvider;
 
 namespace RomanNumbersCalculator.Tests
 {
     [TestClass]
     public class RomanNumberCalculatorTests
     {
-        private RomanNumberCalculator _romanNumberCalculator;
+        private NumberCalculator _romanNumberCalculator;
 
         [TestInitialize]
         public void TestInitialize()
         {
-            _romanNumberCalculator = new RomanNumberCalculator();
+            var unityContainer = new UnityContainer();
+            unityContainer.RegisterType<IStringNumberParser, RomanStringParser>();
+            unityContainer.RegisterType<ISpecification<string>, ConsecutiveRomanPositionalsMustBeDescendingAndUnique>();
+            unityContainer.RegisterType<INumberProvider, RomanNumbersProvider>();
+            _romanNumberCalculator = new NumberCalculator(unityContainer);
         }
 
         [TestMethod]
@@ -41,7 +49,7 @@ namespace RomanNumbersCalculator.Tests
         }
 
         [TestMethod]
-        [ExpectedException(typeof(InvalidRomanNumberException))]
+        [ExpectedException(typeof(InvalidNumberException))]
         public void Add_ThrowsException_When_FirstNumberHasIncorectFormat()
         {
             var number1 = "MXDXLIV";
@@ -52,7 +60,7 @@ namespace RomanNumbersCalculator.Tests
         }
 
         [TestMethod]
-        [ExpectedException(typeof(InvalidRomanNumberException))]
+        [ExpectedException(typeof(InvalidNumberException))]
         public void Add_ThrowsException_When_SecondNumberHasIncorectFormat()
         {
             var number1 = "MDXLIV";

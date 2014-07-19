@@ -4,11 +4,13 @@ using System.ComponentModel;
 
 namespace RomanNumbersCalculator.BL.Model
 {
-    public class RomanNumber : NotifiableObject, IDataErrorInfo
+    public class Number : NotifiableObject, IDataErrorInfo
     {
         private string _value;
         private string _errorString;
-        private RomanNumberValidator _validator;
+        private ISpecification<string> _specification;
+
+        public string Error { get { return _errorString; } }
 
         public string Value
         {
@@ -20,17 +22,6 @@ namespace RomanNumbersCalculator.BL.Model
             }
         }
 
-        public RomanNumber()
-        {
-            _value = string.Empty;
-            _validator = new RomanNumberValidator(new ConsecutiveRomanPositionalsMustBeDescendingAndUnique());
-        }
-
-        public string Error
-        {
-            get { return _errorString; }
-        }
-
         public string this[string columnName]
         {
             get
@@ -38,11 +29,17 @@ namespace RomanNumbersCalculator.BL.Model
                 switch (columnName)
                 {
                     case "Value":
-                        _errorString = _validator.IsValid(_value) ? string.Empty : "Invalid roman number";
+                        _errorString = _specification.IsSatisfiedBy(_value) ? string.Empty : "Invalid roman number";
                         break;
                 }
                 return _errorString;
             }
+        }
+
+        public Number()
+        {
+            _value = string.Empty;
+            _specification = new ConsecutiveRomanPositionalsMustBeDescendingAndUnique();
         }
     }
 }

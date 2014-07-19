@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+
 namespace RomanNumbersCalculator.BL.NumberProvider
 {
     public interface INumberProvider
@@ -7,5 +8,6 @@ namespace RomanNumbersCalculator.BL.NumberProvider
         List<string> Tens { get; }
         List<string> Thousands { get; }
         List<string> Hundreds { get; }
+        string ZeroValue { get; }
     }
 }

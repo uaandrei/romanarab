@@ -12,37 +12,11 @@ namespace RomanNumbersCalculator.BL.NumberProvider
         private List<string> _romanHundreds;
         private List<string> _romanThousands;
 
-        public List<string> Units
-        {
-            get
-            {
-                return _romanUnits;
-            }
-        }
-
-        public List<string> Tens
-        {
-            get
-            {
-                return _romanTens;
-            }
-        }
-
-        public List<string> Hundreds
-        {
-            get
-            {
-                return _romanHundreds;
-            }
-        }
-
-        public List<string> Thousands
-        {
-            get
-            {
-                return _romanThousands;
-            }
-        }
+        public List<string> Units { get { return _romanUnits; } }
+        public List<string> Tens { get { return _romanTens; } }
+        public List<string> Hundreds { get { return _romanHundreds; } }
+        public List<string> Thousands { get { return _romanThousands; } }
+        public string ZeroValue { get { return string.Empty; } }
 
         public RomanNumbersProvider()
         {

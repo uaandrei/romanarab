@@ -24,7 +24,7 @@ namespace RomanNumbersCalculator.GUI.Views
         public MainWindow()
         {
             InitializeComponent();
-            DataContext = new CalculatorViewModel();
+            DataContext = new CalculatorViewModel(UnityHelper.Instance.UnityContainer);
         }
     }
 }

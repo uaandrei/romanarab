@@ -1,7 +1,8 @@
 ﻿using Microsoft.Practices.Prism.Commands;
+using Microsoft.Practices.Unity;
 using RomanNumbersCalculator.BL.Calculator;
 using RomanNumbersCalculator.BL.Model;
-using RomanNumbersCalculator.BL.RomanNumberExceptions;
+using RomanNumbersCalculator.BL.NumberExceptions;
 using System;
 
 namespace RomanNumbersCalculator.ViewModel
@@ -9,21 +10,21 @@ namespace RomanNumbersCalculator.ViewModel
     public class CalculatorViewModel : NotifiableObject
     {
         private EditNumber _editNumber;
-        private RomanNumberCalculator _romanNumberCalculator;
+        private NumberCalculator _romanNumberCalculator;
 
-        public RomanNumber FirstNumber
+        public Number FirstNumber
         {
             get;
             set;
         }
 
-        public RomanNumber SecondNumber
+        public Number SecondNumber
         {
             get;
             set;
         }
 
-        public RomanNumber Result
+        public Number Result
         {
             get;
             set;
@@ -36,12 +37,12 @@ namespace RomanNumbersCalculator.ViewModel
         public DelegateCommand ClearSecondNumberCommand { get; set; }
         public DelegateCommand<string> SendInputCommand { get; set; }
 
-        public CalculatorViewModel()
+        public CalculatorViewModel(IUnityContainer unityContainer)
         {
-            FirstNumber = new RomanNumber();
-            SecondNumber = new RomanNumber();
-            Result = new RomanNumber();
-            _romanNumberCalculator = new RomanNumberCalculator();
+            FirstNumber = new Number();
+            SecondNumber = new Number();
+            Result = new Number();
+            _romanNumberCalculator = new NumberCalculator(unityContainer);
             CalculateCommand = new DelegateCommand(OnCalculateExecute);
             FocusFirstNumberCommand = new DelegateCommand(OnFocusFirstNumberExecute);
             ClearFirstNumberCommand = new DelegateCommand(OnClearFirstNumberExecute);
@@ -68,7 +69,7 @@ namespace RomanNumbersCalculator.ViewModel
             {
                 Result.Value = _romanNumberCalculator.Add(FirstNumber.Value, SecondNumber.Value);
             }
-            catch (InvalidRomanNumberException e)
+            catch (InvalidNumberException e)
             {
                 Result.Value = e.Message;
             }

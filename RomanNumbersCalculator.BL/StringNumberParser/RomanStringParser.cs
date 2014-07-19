@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace RomanNumbersCalculator.BL
+namespace RomanNumbersCalculator.BL.StringNumberParser
 {
-    public class RomanStringParser
+    public class RomanStringParser : IStringNumberParser
     {
         private List<string> _reversedListOfUnitNumbers;
         private List<string> _reversedListOfTenNumbers;
