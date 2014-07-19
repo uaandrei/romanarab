@@ -67,6 +67,7 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Converters\RomanNumberValueConverter.cs" />
     <Compile Include="RomanCalculatorModule.cs" />
     <Compile Include="UserControls\ArabNumbersControl.xaml.cs">
       <DependentUpon>ArabNumbersControl.xaml</DependentUpon>

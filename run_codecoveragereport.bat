@@ -11,7 +11,7 @@ if exist test_report\codecoverage_report (goto RUN) else (mkdir test_report\code
 
 :RUN
 
-%opencover_exe% -register:user -target:%test_exe% -targetargs:%dll% -filter:"+[*BL*]*" -output:%opencoverfile%
+%opencover_exe% -register:user -target:%test_exe% -targetargs:%dll% -filter:"+[*]*" -output:%opencoverfile%
 %reportgenerator_exe% -reports:%opencoverfile% -targetdir:%reportfolder%
 call %reportfolder%"\index.htm"
 

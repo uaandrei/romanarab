@@ -53,6 +53,7 @@
   <ItemGroup>
     <Compile Include="Calculator\NumberCalculator.cs" />
     <Compile Include="Calculator\StringBasedCalculator.cs" />
+    <Compile Include="RomanNumberConverter.cs" />
     <Compile Include="RomanNumberSpecification\ConsecutiveRomanPositionalsMustBeDescendingAndUnique.cs" />
     <Compile Include="PositionalIdentifier.cs" />
     <Compile Include="RomanSymbolsGroup.cs" />

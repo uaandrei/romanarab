@@ -2,6 +2,7 @@
 using Microsoft.Practices.Prism.Commands;
 using Microsoft.Practices.Unity;
 using RomanCalculatorModule.UserControls;
+using RomanNumbersCalculator.BL;
 using RomanNumbersCalculator.BL.Calculator;
 using RomanNumbersCalculator.BL.Model;
 using RomanNumbersCalculator.BL.NumberExceptions;
@@ -88,7 +89,23 @@ namespace RomanNumbersCalculator.ViewModel
         {
             try
             {
-                Result.Value = _numberCalculator.Add(FirstNumber.Value, SecondNumber.Value);
+                var firstNumber = FirstNumber.Value;
+                var secondNumber = SecondNumber.Value;
+                int outFirstNumber;
+                int outSecondNumber;
+                if (int.TryParse(firstNumber, out outFirstNumber))
+                {
+                    firstNumber = RomanNumberConverter.ToRoman(firstNumber.ToString());
+                }
+                if (int.TryParse(secondNumber, out outSecondNumber))
+                {
+                    secondNumber = RomanNumberConverter.ToRoman(secondNumber.ToString());
+                }
+                Result.Value = _numberCalculator.Add(firstNumber, secondNumber);
+                if (InputControl is ArabNumbersControl)
+                {
+                    Result.Value = RomanNumberConverter.ToArab(Result.Value);
+                }
             }
             catch (InvalidNumberException e)
             {
