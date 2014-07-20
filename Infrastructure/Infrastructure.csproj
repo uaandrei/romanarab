@@ -45,7 +45,6 @@
     <Compile Include="INumberCalculator.cs" />
     <Compile Include="INumberProvider.cs" />
     <Compile Include="ISpecification.cs" />
-    <Compile Include="IStringNumberParser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

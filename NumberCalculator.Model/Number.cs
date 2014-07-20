@@ -38,14 +38,10 @@ namespace RomanNumbersCalculator.BL.Model
             }
         }
 
-        public Number()
-        {
-            _value = string.Empty;
-        }
-
-        public void SetSpecification(ISpecification<string> specification)
+        public Number(ISpecification<string> specification)
         {
             _specification = specification;
+            _value = string.Empty;
         }
     }
 }

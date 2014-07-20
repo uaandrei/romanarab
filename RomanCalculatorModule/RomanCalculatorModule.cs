@@ -5,7 +5,6 @@ using Microsoft.Practices.Unity;
 using RomanNumbersCalculator.BL.Calculator;
 using RomanNumbersCalculator.BL.NumberProvider;
 using RomanNumbersCalculator.BL.RomanNumberSpecification;
-using RomanNumbersCalculator.BL.StringNumberParser;
 using RomanNumbersCalculator.ViewModel;
 
 namespace RomanCalculatorModule
@@ -14,12 +13,9 @@ namespace RomanCalculatorModule
     {
         private readonly IRegionViewRegistry _regionViewRegistry;
 
-        public RomanCalculatorModule(IRegionViewRegistry registry, IUnityContainer container)
+        public RomanCalculatorModule(IRegionViewRegistry registry)
         {
             _regionViewRegistry = registry;
-            container.RegisterType<IStringNumberParser, RomanStringParser>();
-            container.RegisterType<INumberProvider, RomanNumbersProvider>();
-            container.RegisterType<ISpecification<string>, ConsecutiveRomanPositionalsMustBeDescendingAndUnique>();
         }
 
         public void Initialize()

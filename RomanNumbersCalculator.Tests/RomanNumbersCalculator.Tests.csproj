@@ -66,14 +66,17 @@
   </Choose>
   <ItemGroup>
     <Compile Include="NotifiableObjectTests.cs" />
+    <Compile Include="RomanHundredsExtractorTests.cs" />
     <Compile Include="RomanNumbersProviderTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RomanStringParserTests.cs" />
     <Compile Include="PositionalIdentifierTests.cs" />
-    <Compile Include="ConsecutiveRomanPositionalsMustBeDescendingAndUniqueTests.cs" />
+    <Compile Include="RomanTenExtractorTests.cs" />
+    <Compile Include="RomanThousandsExtractorTests.cs" />
+    <Compile Include="RomanUnitExtractorTests.cs" />
     <Compile Include="StringBasedCalculatorTests.cs" />
     <Compile Include="Integration\RomanNumberCalculatorTests.cs" />
     <Compile Include="RomanNumberConverterTests.cs" />
+    <Compile Include="RomanNumberValidatorTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CommonLibrary\CommonLibrary.csproj">

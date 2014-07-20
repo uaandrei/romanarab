@@ -1,7 +1,4 @@
 ﻿using Microsoft.Practices.Unity;
-using RomanNumbersCalculator.BL.NumberProvider;
-using RomanNumbersCalculator.BL.RomanNumberSpecification;
-using RomanNumbersCalculator.BL.StringNumberParser;
 using RomanNumbersCalculator.ViewModel;
 using System.Windows.Controls;
 
@@ -12,10 +9,10 @@ namespace RomanCalculatorModule.Views
     /// </summary>
     public partial class CalculatorView : UserControl
     {
-        public CalculatorView(IUnityContainer container)
+        public CalculatorView()
         {
             InitializeComponent();
-            DataContext = new CalculatorViewModel(container);
+            DataContext = new CalculatorViewModel();
 
         }
     }
