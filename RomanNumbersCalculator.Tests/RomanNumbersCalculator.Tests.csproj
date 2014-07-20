@@ -65,6 +65,9 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="ArabTensExtractorTests.cs" />
+    <Compile Include="ArabUnitExtractorTests.cs" />
+    <Compile Include="Integration\ArabNumberCalculatorTests.cs" />
     <Compile Include="NotifiableObjectTests.cs" />
     <Compile Include="RomanHundredsExtractorTests.cs" />
     <Compile Include="RomanNumbersProviderTests.cs" />

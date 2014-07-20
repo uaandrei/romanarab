@@ -49,7 +49,7 @@ namespace RomanNumbersCalculator.Tests
             var number2 = "MD";
 
             _romanNumberCalculator.Add(number1, number2);
-            Assert.Fail("This test should fail when second number has incorect format");
+            Assert.Fail("This test should fail when result is too large");
         }
     }
 }

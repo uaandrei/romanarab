@@ -51,8 +51,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Calculator\ArabNumberCalculator.cs" />
     <Compile Include="Calculator\RomanNumberCalculator.cs" />
     <Compile Include="Calculator\StringBasedCalculator.cs" />
+    <Compile Include="NumberProvider\ArabNumbersProvider.cs" />
+    <Compile Include="PositionalExtractor\ArabPositionalExtractor.cs" />
     <Compile Include="PositionalExtractor\IPositionalExtractor.cs" />
     <Compile Include="PositionalExtractor\PositionalPriority.cs" />
     <Compile Include="PositionalExtractor\RomanPositionalExtractor.cs" />
