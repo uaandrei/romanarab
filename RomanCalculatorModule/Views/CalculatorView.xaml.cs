@@ -1,5 +1,4 @@
-﻿using Microsoft.Practices.Unity;
-using RomanNumbersCalculator.ViewModel;
+﻿using RomanNumbersCalculator.ViewModel;
 using System.Windows.Controls;
 
 namespace RomanCalculatorModule.Views

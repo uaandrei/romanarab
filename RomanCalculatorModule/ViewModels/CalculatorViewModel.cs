@@ -1,6 +1,5 @@
 ﻿using Infrastructure;
 using Microsoft.Practices.Prism.Commands;
-using Microsoft.Practices.Unity;
 using RomanCalculatorModule.UserControls;
 using RomanNumbersCalculator.BL;
 using RomanNumbersCalculator.BL.Calculator;

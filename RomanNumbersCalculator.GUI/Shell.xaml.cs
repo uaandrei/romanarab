@@ -27,7 +27,7 @@ namespace AwesomeCalculator.Main
             this.ModuleManager.LoadModuleCompleted +=
                 (s, e) =>
                 {
-                    //if (e.ModuleInfo.ModuleName == EmailModuleName)
+                    if (e.ModuleInfo.ModuleName == string.Empty) ;
                     //{
                     //    this.RegionManager.RequestNavigate(
                     //        RegionNames.MainContentRegion,

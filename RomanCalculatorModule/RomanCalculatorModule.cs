@@ -1,26 +1,23 @@
-﻿using Infrastructure;
+﻿using Microsoft.Practices.Prism.MefExtensions.Modularity;
 using Microsoft.Practices.Prism.Modularity;
 using Microsoft.Practices.Prism.Regions;
-using Microsoft.Practices.Unity;
-using RomanNumbersCalculator.BL.Calculator;
-using RomanNumbersCalculator.BL.NumberProvider;
-using RomanNumbersCalculator.BL.RomanNumberSpecification;
-using RomanNumbersCalculator.ViewModel;
+using System.ComponentModel.Composition;
 
 namespace RomanCalculatorModule
 {
+    [ModuleExport(typeof(RomanCalculatorModule))]
     public class RomanCalculatorModule : IModule
     {
-        private readonly IRegionViewRegistry _regionViewRegistry;
+        [Import]
+        public IRegionManager RegionManager;
 
-        public RomanCalculatorModule(IRegionViewRegistry registry)
+        public RomanCalculatorModule()
         {
-            _regionViewRegistry = registry;
         }
 
         public void Initialize()
         {
-            _regionViewRegistry.RegisterViewWithRegion("MainRegion", typeof(Views.CalculatorView));
+            RegionManager.RegisterViewWithRegion("MainRegion", typeof(Views.CalculatorView));
         }
     }
 }
