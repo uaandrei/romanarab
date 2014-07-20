@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using Infrastructure;
+using NumbersCalculator.BL.NumberProvider;
 
-namespace RomanNumbersCalculator.BL.PositionalExtractor
+namespace NumbersCalculator.BL.PositionalExtractor
 {
     public class ArabPositionalExtractor : IPositionalExtractor
     {
@@ -18,11 +16,11 @@ namespace RomanNumbersCalculator.BL.PositionalExtractor
         {
             if (string.IsNullOrEmpty(value))
             {
-                return "0";
+                return ArabNumbersProvider.Zero;
             }
             if (_position >= value.Length)
             {
-                return "0";
+                return ArabNumbersProvider.Zero;
             }
             return value[value.Length - 1 - _position].ToString();
         }

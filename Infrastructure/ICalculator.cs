@@ -1,4 +1,4 @@
-﻿namespace RomanNumbersCalculator.BL.Calculator
+﻿namespace Infrastructure
 {
     public interface ICalculator<T>
     {

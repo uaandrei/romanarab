@@ -1,4 +1,4 @@
-﻿namespace RomanNumbersCalculator.BL.RomanNumberSpecification
+﻿namespace Infrastructure
 {
     public interface ISpecification<T>
     {

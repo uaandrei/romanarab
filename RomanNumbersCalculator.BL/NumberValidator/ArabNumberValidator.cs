@@ -1,11 +1,7 @@
-﻿using RomanNumbersCalculator.BL.RomanNumberSpecification;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using Infrastructure;
 using System.Text.RegularExpressions;
 
-namespace RomanNumbersCalculator.BL.NumberValidator
+namespace NumbersCalculator.BL.NumberValidator
 {
     public class ArabNumberValidator : ISpecification<string>
     {

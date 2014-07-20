@@ -1,10 +1,8 @@
-﻿using RomanNumbersCalculator.BL.NumberProvider;
-using System;
+﻿using Infrastructure;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
-namespace RomanNumbersCalculator.BL.PositionalExtractor
+namespace NumbersCalculator.BL.PositionalExtractor
 {
     public class RomanPositionalExtractor : IPositionalExtractor
     {

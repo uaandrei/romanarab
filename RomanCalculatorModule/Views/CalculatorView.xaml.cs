@@ -1,8 +1,7 @@
-﻿using Microsoft.Practices.Unity;
-using RomanNumbersCalculator.ViewModel;
+﻿using CalculatorModule.ViewModel;
 using System.Windows.Controls;
 
-namespace RomanCalculatorModule.Views
+namespace CalculatorModule.Views
 {
     /// <summary>
     /// Interaction logic for CalculatorView.xaml
@@ -13,7 +12,6 @@ namespace RomanCalculatorModule.Views
         {
             InitializeComponent();
             DataContext = new CalculatorViewModel();
-
         }
     }
 }

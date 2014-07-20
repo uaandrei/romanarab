@@ -1,8 +1,8 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using RomanNumbersCalculator.BL.NumberValidator;
+using NumbersCalculator.BL.NumberValidator;
 
-namespace RomanNumbersCalculator.Tests
+namespace CalculatorModule.Tests
 {
     [TestClass]
     public class ArabNumberValidatorTests

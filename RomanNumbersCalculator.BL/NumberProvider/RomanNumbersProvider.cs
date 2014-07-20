@@ -1,9 +1,8 @@
-﻿using RomanNumbersCalculator.BL.NumberProvider;
-using System;
+﻿using Infrastructure;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace RomanNumbersCalculator.BL.NumberProvider
+namespace NumbersCalculator.BL.NumberProvider
 {
     public class RomanNumbersProvider : INumberProvider
     {

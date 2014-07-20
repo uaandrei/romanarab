@@ -1,12 +1,13 @@
-﻿using Infrastructure;
-using Microsoft.Practices.Unity;
-using RomanNumbersCalculator.BL.NumberProvider;
-using RomanNumbersCalculator.BL.PositionalExtractor;
+﻿using CalculatorModule.BL.Calculator;
+using CommonLibrary;
+using Infrastructure;
+using NumbersCalculator.BL.NumberProvider;
+using NumbersCalculator.BL.PositionalExtractor;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace RomanNumbersCalculator.BL.Calculator
+namespace NumbersCalculator.BL.Calculator
 {
     public class RomanNumberCalculator : INumberCalculator
     {
@@ -17,14 +18,14 @@ namespace RomanNumbersCalculator.BL.Calculator
         {
             _numbersProvider = new RomanNumbersProvider();
             _positionalAndCalculatorDictionary = new Dictionary<IPositionalExtractor, StringBasedCalculator>();
-            _positionalAndCalculatorDictionary.Add(new RomanPositionalExtractor(_numbersProvider.Units, "", "IV"),
-                                                   new StringBasedCalculator(new[] { "" }.Concat(_numbersProvider.Units).ToList()));
-            _positionalAndCalculatorDictionary.Add(new RomanPositionalExtractor(_numbersProvider.Tens, "IX", "XL"),
-                                                   new StringBasedCalculator(new[] { "" }.Concat(_numbersProvider.Tens).ToList()));
-            _positionalAndCalculatorDictionary.Add(new RomanPositionalExtractor(_numbersProvider.Hundreds, "XC", "CD"),
-                                                   new StringBasedCalculator(new[] { "" }.Concat(_numbersProvider.Hundreds).ToList()));
-            _positionalAndCalculatorDictionary.Add(new RomanPositionalExtractor(_numbersProvider.Thousands, "CM", ""),
-                                                   new StringBasedCalculator(new[] { "" }.Concat(_numbersProvider.Thousands).ToList()));
+            _positionalAndCalculatorDictionary.Add(new RomanPositionalExtractor(_numbersProvider.Units, RomanExceptionsConstants.Empty, RomanExceptionsConstants.UnitsExists),
+                                                   new StringBasedCalculator(new[] { RomanExceptionsConstants.Empty }.Concat(_numbersProvider.Units).ToList()));
+            _positionalAndCalculatorDictionary.Add(new RomanPositionalExtractor(_numbersProvider.Tens, RomanExceptionsConstants.TensRemove, RomanExceptionsConstants.TensExists),
+                                                   new StringBasedCalculator(new[] { RomanExceptionsConstants.Empty }.Concat(_numbersProvider.Tens).ToList()));
+            _positionalAndCalculatorDictionary.Add(new RomanPositionalExtractor(_numbersProvider.Hundreds, RomanExceptionsConstants.HundredsRemove, RomanExceptionsConstants.HundredsExists),
+                                                   new StringBasedCalculator(new[] { RomanExceptionsConstants.Empty }.Concat(_numbersProvider.Hundreds).ToList()));
+            _positionalAndCalculatorDictionary.Add(new RomanPositionalExtractor(_numbersProvider.Thousands, RomanExceptionsConstants.ThousandsRemove, RomanExceptionsConstants.Empty),
+                                                   new StringBasedCalculator(new[] { RomanExceptionsConstants.Empty }.Concat(_numbersProvider.Thousands).ToList()));
         }
 
         public string Add(string number1, string number2)
@@ -40,7 +41,7 @@ namespace RomanNumbersCalculator.BL.Calculator
             }
             if (hasTransport)
             {
-                throw new OverflowException("Result is too big");
+                throw new OverflowException(MessageConstants.ResultTooBig);
             }
             return additionResult;
         }

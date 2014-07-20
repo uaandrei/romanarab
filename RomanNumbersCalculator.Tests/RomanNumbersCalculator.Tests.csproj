@@ -6,7 +6,7 @@
     <ProjectGuid>{B134195E-1E9A-4712-A039-973EF7457671}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>RomanNumbersCalculator.Tests</RootNamespace>
+    <RootNamespace>CalculatorModule.Tests</RootNamespace>
     <AssemblyName>RomanNumbersCalculator.Tests</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -38,18 +38,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.Practices.ServiceLocation">
-      <HintPath>..\packages\CommonServiceLocator.1.0\lib\NET35\Microsoft.Practices.ServiceLocation.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Practices.Unity">
-      <HintPath>..\packages\Unity.2.1.505.2\lib\NET35\Microsoft.Practices.Unity.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Practices.Unity.Configuration">
-      <HintPath>..\packages\Unity.2.1.505.2\lib\NET35\Microsoft.Practices.Unity.Configuration.dll</HintPath>
-    </Reference>
-    <Reference Include="Moq">
-      <HintPath>..\packages\Moq.4.2.1402.2112\lib\net40\Moq.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
   </ItemGroup>
   <Choose>
@@ -73,13 +61,11 @@
     <Compile Include="RomanHundredsExtractorTests.cs" />
     <Compile Include="RomanNumbersProviderTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="PositionalIdentifierTests.cs" />
     <Compile Include="RomanTenExtractorTests.cs" />
     <Compile Include="RomanThousandsExtractorTests.cs" />
     <Compile Include="RomanUnitExtractorTests.cs" />
     <Compile Include="StringBasedCalculatorTests.cs" />
     <Compile Include="Integration\RomanNumberCalculatorTests.cs" />
-    <Compile Include="RomanNumberConverterTests.cs" />
     <Compile Include="RomanNumberValidatorTests.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -91,13 +77,10 @@
       <Project>{fb416fb6-2ae7-46b6-a38a-94d9029d82a0}</Project>
       <Name>Infrastructure</Name>
     </ProjectReference>
-    <ProjectReference Include="..\RomanNumbersCalculator.BL\RomanNumbersCalculator.BL.csproj">
+    <ProjectReference Include="..\RomanNumbersCalculator.BL\NumbersCalculator.BL.csproj">
       <Project>{29a6b0bb-48cf-4c2d-83fb-eea3fc384408}</Project>
-      <Name>RomanNumbersCalculator.BL</Name>
+      <Name>NumbersCalculator.BL</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

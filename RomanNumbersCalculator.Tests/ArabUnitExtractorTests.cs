@@ -1,8 +1,8 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using RomanNumbersCalculator.BL.PositionalExtractor;
+using NumbersCalculator.BL.PositionalExtractor;
 
-namespace RomanNumbersCalculator.Tests
+namespace CalculatorModule.Tests
 {
     [TestClass]
     public class ArabUnitExtractorTests

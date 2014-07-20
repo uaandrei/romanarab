@@ -1,19 +1,17 @@
-﻿using Infrastructure;
+﻿using CalculatorModule.Model;
+using CalculatorModule.UserControls;
+using CommonLibrary;
+using Infrastructure;
 using Microsoft.Practices.Prism.Commands;
-using Microsoft.Practices.Unity;
-using RomanCalculatorModule.UserControls;
-using RomanNumbersCalculator.BL;
-using RomanNumbersCalculator.BL.Calculator;
-using RomanNumbersCalculator.BL.Model;
-using RomanNumbersCalculator.BL.NumberExceptions;
-using RomanNumbersCalculator.BL.NumberValidator;
-using RomanNumbersCalculator.BL.RomanNumberSpecification;
+using NumbersCalculator.BL.Calculator;
+using NumbersCalculator.BL.NumberValidator;
+using NumbersCalculator.BL.RomanNumberSpecification;
 using System;
 using System.Windows.Controls;
 
-namespace RomanNumbersCalculator.ViewModel
+namespace CalculatorModule.ViewModel
 {
-    public class CalculatorViewModel : NotifiableObject, ICalculatorViewModel
+    public class CalculatorViewModel : NotifiableObject
     {
         private INumberCalculator _numberCalculator;
         private UserControl _userControl;

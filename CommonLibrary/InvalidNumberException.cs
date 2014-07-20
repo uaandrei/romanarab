@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace RomanNumbersCalculator.BL.NumberExceptions
+namespace CommonLibrary
 {
     public class InvalidNumberException : Exception
     {

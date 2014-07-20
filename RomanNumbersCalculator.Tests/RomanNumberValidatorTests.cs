@@ -1,8 +1,7 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using RomanNumbersCalculator.BL.RomanNumberSpecification;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NumbersCalculator.BL.RomanNumberSpecification;
 
-namespace RomanNumbersCalculator.Tests
+namespace CalculatorModule.Tests
 {
     [TestClass]
     public class RomanNumberValidatorTests

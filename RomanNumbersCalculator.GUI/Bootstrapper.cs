@@ -23,7 +23,7 @@ namespace AwesomeCalculator.Main
             base.ConfigureModuleCatalog();
 
             ModuleCatalog moduleCatalog = (ModuleCatalog)this.ModuleCatalog;
-            moduleCatalog.AddModule(typeof(RomanCalculatorModule.RomanCalculatorModule));
+            moduleCatalog.AddModule(typeof(CalculatorModule.RomanCalculatorModule));
         }
     }
 }

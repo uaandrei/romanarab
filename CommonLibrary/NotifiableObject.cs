@@ -1,7 +1,6 @@
 ﻿using System.ComponentModel;
-using System.Runtime.CompilerServices;
 
-namespace RomanNumbersCalculator.BL.Model
+namespace CommonLibrary
 {
     public class NotifiableObject : INotifyPropertyChanged
     {

@@ -1,8 +1,7 @@
-﻿using System;
+﻿using CommonLibrary;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using RomanNumbersCalculator.BL.Model;
 
-namespace RomanNumbersCalculator.Tests
+namespace CalculatorModule.Tests
 {
     [TestClass]
     public class NotifiableObjectTests

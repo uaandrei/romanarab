@@ -129,13 +129,13 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\RomanCalculatorModule\RomanCalculatorModule.csproj">
+    <ProjectReference Include="..\RomanCalculatorModule\CalculatorModule.csproj">
       <Project>{d09b675f-8027-4392-b1c5-db0a13d04693}</Project>
-      <Name>RomanCalculatorModule</Name>
+      <Name>CalculatorModule</Name>
     </ProjectReference>
-    <ProjectReference Include="..\RomanNumbersCalculator.BL\RomanNumbersCalculator.BL.csproj">
+    <ProjectReference Include="..\RomanNumbersCalculator.BL\NumbersCalculator.BL.csproj">
       <Project>{29a6b0bb-48cf-4c2d-83fb-eea3fc384408}</Project>
-      <Name>RomanNumbersCalculator.BL</Name>
+      <Name>NumbersCalculator.BL</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />

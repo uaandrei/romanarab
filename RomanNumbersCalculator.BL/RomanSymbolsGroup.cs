@@ -1,4 +1,4 @@
-﻿namespace RomanNumbersCalculator.BL
+﻿namespace NumbersCalculator.BL
 {
     public class RomanSymbolsGroup
     {

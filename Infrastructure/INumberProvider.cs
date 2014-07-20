@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace RomanNumbersCalculator.BL.NumberProvider
+namespace Infrastructure
 {
     public interface INumberProvider
     {

@@ -1,5 +1,7 @@
-﻿using System.Text.RegularExpressions;
-namespace RomanNumbersCalculator.BL.RomanNumberSpecification
+﻿using Infrastructure;
+using System.Text.RegularExpressions;
+
+namespace NumbersCalculator.BL.RomanNumberSpecification
 {
     public class RomanNumberValidator : ISpecification<string>
     {

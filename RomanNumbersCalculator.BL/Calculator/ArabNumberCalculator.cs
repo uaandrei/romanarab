@@ -1,12 +1,11 @@
-﻿using Infrastructure;
-using RomanNumbersCalculator.BL.NumberProvider;
-using RomanNumbersCalculator.BL.PositionalExtractor;
+﻿using CommonLibrary;
+using Infrastructure;
+using NumbersCalculator.BL.NumberProvider;
+using NumbersCalculator.BL.PositionalExtractor;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
-namespace RomanNumbersCalculator.BL.Calculator
+namespace NumbersCalculator.BL.Calculator
 {
     public class ArabNumberCalculator : INumberCalculator
     {
@@ -40,7 +39,7 @@ namespace RomanNumbersCalculator.BL.Calculator
             }
             if (hasTransport)
             {
-                throw new OverflowException("Result is too big");
+                throw new OverflowException(MessageConstants.ResultTooBig);
             }
             return additionResult;
         }

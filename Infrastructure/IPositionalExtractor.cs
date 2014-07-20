@@ -1,4 +1,4 @@
-﻿namespace RomanNumbersCalculator.BL.PositionalExtractor
+﻿namespace Infrastructure
 {
     public interface IPositionalExtractor
     {

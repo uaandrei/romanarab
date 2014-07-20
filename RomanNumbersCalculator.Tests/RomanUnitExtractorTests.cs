@@ -1,12 +1,8 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using RomanNumbersCalculator.BL.PositionalExtractor;
-using RomanNumbersCalculator.BL.NumberExceptions;
-using Moq;
-using RomanNumbersCalculator.BL.NumberProvider;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
+using NumbersCalculator.BL.PositionalExtractor;
 
-namespace RomanNumbersCalculator.Tests
+namespace CalculatorModule.Tests
 {
     [TestClass]
     public class RomanUnitExtractorTests

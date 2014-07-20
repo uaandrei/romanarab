@@ -1,7 +1,7 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using Infrastructure;
+using System.Collections.Generic;
 
-namespace RomanNumbersCalculator.BL.Calculator
+namespace NumbersCalculator.BL.Calculator
 {
     public class StringBasedCalculator : ICalculator<string>
     {
