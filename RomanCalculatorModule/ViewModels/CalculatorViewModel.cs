@@ -6,6 +6,7 @@ using RomanNumbersCalculator.BL;
 using RomanNumbersCalculator.BL.Calculator;
 using RomanNumbersCalculator.BL.Model;
 using RomanNumbersCalculator.BL.NumberExceptions;
+using RomanNumbersCalculator.BL.NumberValidator;
 using RomanNumbersCalculator.BL.RomanNumberSpecification;
 using System;
 using System.Windows.Controls;
@@ -14,9 +15,11 @@ namespace RomanNumbersCalculator.ViewModel
 {
     public class CalculatorViewModel : NotifiableObject, ICalculatorViewModel
     {
-        private EditNumber _editNumber;
         private INumberCalculator _numberCalculator;
         private UserControl _userControl;
+        private ISpecification<string> _numberValidator;
+
+        private EditNumber _editNumber;
 
         public Number FirstNumber { get; set; }
         public Number SecondNumber { get; set; }
@@ -43,7 +46,7 @@ namespace RomanNumbersCalculator.ViewModel
 
         public CalculatorViewModel()
         {
-            CalculateCommand = new DelegateCommand(OnCalculateExecute);
+            CalculateCommand = new DelegateCommand(OnCalculateExecute, CanExecuteCalculate);
             FocusFirstNumberCommand = new DelegateCommand(OnFocusFirstNumberExecute);
             ClearFirstNumberCommand = new DelegateCommand(OnClearFirstNumberExecute);
             FocusSecondNumberCommand = new DelegateCommand(OnFocusSecondNumberExecute);
@@ -51,21 +54,20 @@ namespace RomanNumbersCalculator.ViewModel
             SwitchToArabCommand = new DelegateCommand(OnSwitchToArabExecute);
             SwitchToRomanCommand = new DelegateCommand(OnSwitchToRomanExecute);
             SendInputCommand = new DelegateCommand<string>(OnSendInputExecute);
-            InputControl = new RomanNumbersControl();
-            FirstNumber = new Number(new RomanNumberValidator());
-            SecondNumber = new Number(new RomanNumberValidator());
-            Result = new Number(new RomanNumberValidator());
-            _numberCalculator = new RomanNumberCalculator();
+            FirstNumber = new Number();
+            SecondNumber = new Number();
+            Result = new Number();
+            SetupRomanCalculator();
         }
 
         private void OnSwitchToRomanExecute()
         {
-            InputControl = new RomanNumbersControl();
+            SetupRomanCalculator();
         }
 
         private void OnSwitchToArabExecute()
         {
-            InputControl = new ArabNumbersControl();
+            SetupArabCalculator();
         }
 
         private void OnClearFirstNumberExecute()
@@ -80,27 +82,16 @@ namespace RomanNumbersCalculator.ViewModel
             Result.Value = string.Empty;
         }
 
+        private bool CanExecuteCalculate()
+        {
+            return string.IsNullOrEmpty(FirstNumber.Error) && string.IsNullOrEmpty(SecondNumber.Error);
+        }
+
         private void OnCalculateExecute()
         {
             try
             {
-                var firstNumber = FirstNumber.Value;
-                var secondNumber = SecondNumber.Value;
-                int outFirstNumber;
-                int outSecondNumber;
-                if (int.TryParse(firstNumber, out outFirstNumber))
-                {
-                    firstNumber = RomanNumberConverter.ToRoman(firstNumber.ToString());
-                }
-                if (int.TryParse(secondNumber, out outSecondNumber))
-                {
-                    secondNumber = RomanNumberConverter.ToRoman(secondNumber.ToString());
-                }
-                Result.Value = _numberCalculator.Add(firstNumber, secondNumber);
-                if (InputControl is ArabNumbersControl)
-                {
-                    Result.Value = RomanNumberConverter.ToArab(Result.Value);
-                }
+                Result.Value = _numberCalculator.Add(FirstNumber.Value, SecondNumber.Value);
             }
             catch (InvalidNumberException e)
             {
@@ -133,6 +124,30 @@ namespace RomanNumbersCalculator.ViewModel
         private void OnFocusSecondNumberExecute()
         {
             _editNumber = EditNumber.Second;
+        }
+
+        private void SetupArabCalculator()
+        {
+            FirstNumber.Value = string.Empty;
+            SecondNumber.Value = string.Empty;
+            Result.Value = string.Empty;
+            InputControl = new ArabNumbersControl();
+            _numberCalculator = new ArabNumberCalculator();
+            _numberValidator = new ArabNumberValidator();
+            FirstNumber.SetSpecification(_numberValidator);
+            SecondNumber.SetSpecification(_numberValidator);
+        }
+
+        private void SetupRomanCalculator()
+        {
+            FirstNumber.Value = string.Empty;
+            SecondNumber.Value = string.Empty;
+            Result.Value = string.Empty;
+            InputControl = new RomanNumbersControl();
+            _numberCalculator = new RomanNumberCalculator();
+            _numberValidator = new RomanNumberValidator();
+            FirstNumber.SetSpecification(_numberValidator);
+            SecondNumber.SetSpecification(_numberValidator);
         }
 
         private enum EditNumber

@@ -31,17 +31,21 @@ namespace RomanNumbersCalculator.BL.Model
                 switch (columnName)
                 {
                     case "Value":
-                        _errorString = _specification.IsSatisfiedBy(_value) ? string.Empty : "Invalid roman number";
+                        _errorString = _specification.IsSatisfiedBy(_value) ? string.Empty : "Invalid number";
                         break;
                 }
                 return _errorString;
             }
         }
 
-        public Number(ISpecification<string> specification)
+        public Number()
+        {
+            _value = string.Empty;
+        }
+
+        public void SetSpecification(ISpecification<string> specification)
         {
             _specification = specification;
-            _value = string.Empty;
         }
     }
 }

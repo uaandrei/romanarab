@@ -55,13 +55,13 @@
     <Compile Include="Calculator\RomanNumberCalculator.cs" />
     <Compile Include="Calculator\StringBasedCalculator.cs" />
     <Compile Include="NumberProvider\ArabNumbersProvider.cs" />
+    <Compile Include="NumberValidator\ArabNumberValidator.cs" />
     <Compile Include="PositionalExtractor\ArabPositionalExtractor.cs" />
-    <Compile Include="PositionalExtractor\IPositionalExtractor.cs" />
     <Compile Include="PositionalExtractor\PositionalPriority.cs" />
     <Compile Include="PositionalExtractor\RomanPositionalExtractor.cs" />
     <Compile Include="RomanNumberConverter.cs" />
     <Compile Include="PositionalIdentifier.cs" />
-    <Compile Include="RomanNumberSpecification\RomanNumberValidator.cs" />
+    <Compile Include="NumberValidator\RomanNumberValidator.cs" />
     <Compile Include="RomanSymbolsGroup.cs" />
     <Compile Include="NumberProvider\RomanNumbersProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

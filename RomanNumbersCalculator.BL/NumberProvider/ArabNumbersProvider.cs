@@ -26,10 +26,5 @@ namespace RomanNumbersCalculator.BL.NumberProvider
         {
             get { return _arabNumbers; }
         }
-
-        public string ZeroValue
-        {
-            get { return "0"; }
-        }
     }
 }

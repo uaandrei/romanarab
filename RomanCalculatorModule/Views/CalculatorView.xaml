@@ -73,7 +73,7 @@
             </Grid.ColumnDefinitions>
             <Button Grid.Column="0"
                     Content="="
-                    Command="{Binding CalculateCommand}"/>
+                    Command="{Binding CalculateCommand, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnSourceUpdated=True}"/>
             <TextBlock Grid.Column="1"
                        Style="{StaticResource ResourceKey=OutputTextBlock}"
                        Text="{Binding Result.Value}"/>
