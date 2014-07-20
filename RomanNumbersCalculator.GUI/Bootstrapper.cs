@@ -1,29 +1,33 @@
-﻿using Microsoft.Practices.Prism.Modularity;
-using Microsoft.Practices.Prism.UnityExtensions;
-using Microsoft.Practices.Unity;
+﻿using Microsoft.Practices.Prism.MefExtensions;
+using Microsoft.Practices.Prism.Modularity;
 using System.Windows;
+using System.ComponentModel.Composition.Hosting;
 
 namespace AwesomeCalculator.Main
 {
-    class Bootstrapper : UnityBootstrapper
+    class Bootstrapper : MefBootstrapper
     {
+        protected override void ConfigureAggregateCatalog()
+        {
+            base.ConfigureAggregateCatalog();
+            AggregateCatalog.Catalogs.Add(new AssemblyCatalog(typeof(Bootstrapper).Assembly));
+        }
+
+        protected override IModuleCatalog CreateModuleCatalog()
+        {
+            return new ConfigurationModuleCatalog();
+        }
+
         protected override DependencyObject CreateShell()
         {
-            return Container.Resolve<Shell>();
+            return this.Container.GetExportedValue<Shell>();
         }
 
         protected override void InitializeShell()
         {
-            Application.Current.MainWindow = (Window)Shell;
+            base.InitializeShell();
+            Application.Current.MainWindow = (Window)this.Shell;
             Application.Current.MainWindow.Show();
-        }
-
-        protected override void ConfigureModuleCatalog()
-        {
-            base.ConfigureModuleCatalog();
-
-            ModuleCatalog moduleCatalog = (ModuleCatalog)this.ModuleCatalog;
-            moduleCatalog.AddModule(typeof(RomanCalculatorModule.RomanCalculatorModule));
         }
     }
 }
