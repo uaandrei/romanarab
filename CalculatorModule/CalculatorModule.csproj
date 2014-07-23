@@ -91,7 +91,7 @@
       <Project>{fb416fb6-2ae7-46b6-a38a-94d9029d82a0}</Project>
       <Name>Infrastructure</Name>
     </ProjectReference>
-    <ProjectReference Include="..\RomanNumbersCalculator.BL\NumbersCalculator.BL.csproj">
+    <ProjectReference Include="..\NumbersCalculator.BL\NumbersCalculator.BL.csproj">
       <Project>{29a6b0bb-48cf-4c2d-83fb-eea3fc384408}</Project>
       <Name>NumbersCalculator.BL</Name>
     </ProjectReference>

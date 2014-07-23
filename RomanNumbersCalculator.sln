@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Express 2013 for Windows Desktop
 VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NumbersCalculator.BL", "RomanNumbersCalculator.BL\NumbersCalculator.BL.csproj", "{29A6B0BB-48CF-4C2D-83FB-EEA3FC384408}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NumbersCalculator.BL", "NumbersCalculator.BL\NumbersCalculator.BL.csproj", "{29A6B0BB-48CF-4C2D-83FB-EEA3FC384408}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RomanNumbersCalculator.Tests", "RomanNumbersCalculator.Tests\RomanNumbersCalculator.Tests.csproj", "{B134195E-1E9A-4712-A039-973EF7457671}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AwesomeCalculator.Main", "RomanNumbersCalculator.GUI\AwesomeCalculator.Main.csproj", "{36E4CF43-0F8A-4D11-BAF5-B1B4B5134446}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AwesomeCalculator.Main", "AwesomeCalculator.Main\AwesomeCalculator.Main.csproj", "{36E4CF43-0F8A-4D11-BAF5-B1B4B5134446}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{29F0A082-9521-402C-9D90-E167834F24CF}"
 	ProjectSection(SolutionItems) = preProject
@@ -17,7 +17,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{29F0A0
 		.nuget\packages.config = .nuget\packages.config
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalculatorModule", "RomanCalculatorModule\CalculatorModule.csproj", "{D09B675F-8027-4392-B1C5-DB0A13D04693}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalculatorModule", "CalculatorModule\CalculatorModule.csproj", "{D09B675F-8027-4392-B1C5-DB0A13D04693}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommonLibrary", "CommonLibrary\CommonLibrary.csproj", "{D4750B8E-D663-450C-AF90-F287D91852BD}"
 EndProject
