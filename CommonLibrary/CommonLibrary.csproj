@@ -35,7 +35,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MessageConstants.cs" />
-    <Compile Include="InvalidNumberException.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="NotifiableObject.cs" />
   </ItemGroup>

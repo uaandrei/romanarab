@@ -91,10 +91,6 @@ namespace CalculatorModule.ViewModel
             {
                 Result.Value = _numberCalculator.Add(FirstNumber.Value, SecondNumber.Value);
             }
-            catch (InvalidNumberException e)
-            {
-                Result.Value = e.Message;
-            }
             catch (OverflowException e)
             {
                 Result.Value = e.Message;
